@@ -21,13 +21,11 @@ const Hero = () => {
         </p>
         <div className="hidden md:block mt-5 animate-fade-right animate-once animate-duration-1000 animate-delay-500 animate-ease-in-out animate-fill-both">
           <Button
+            width={"w-[200px]"}
             backgroundColor={"bg-[#5ABC72]"}
-            px={"5"}
-            py={"2"}
+            rounded
             text={"md"}
-            color={"#fff"}
-            rounded={"20px"}
-            width={"150px"}>
+           >
             Register Now
           </Button>
         </div>

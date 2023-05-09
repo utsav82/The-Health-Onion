@@ -16,9 +16,10 @@ function Auth() {
           bg-cover
           bg-center
           bg-no-repeat
-          z-50 
+          z-5 
           bg-auth-bg
           bg-[#B4D7B1]
+          md:mt-5
           
         "
     >

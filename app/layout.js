@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Nunito } from "next/font/google";
 import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
+
 
 export const metadata = {
   title: "The Health Onion",
@@ -17,7 +17,6 @@ export default function RootLayout({ children }) {
       <body className={font.className}>
         <Navbar></Navbar>
         {children}
-        <Footer></Footer>
       </body>
     </html>
   );

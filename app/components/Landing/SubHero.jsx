@@ -33,13 +33,7 @@ const SubHero = () => {
           your goals
         </p>
         <div className="mt-1.5">
-          <Button
-            backgroundColor={"bg-[#21B9C4]"}
-            px="5"
-            py="2"
-            color={"#fff"}
-            rounded={"20px"}
-            width={"w-[100px]"}>
+          <Button rounded>
             Sign Up
           </Button>
         </div>

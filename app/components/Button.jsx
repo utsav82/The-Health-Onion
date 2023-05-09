@@ -11,9 +11,7 @@ const Button = ({
   disabled,
   rounded,
   backgroundColor,
-  px,
-  py,
-  text,
+  text
 }) => {
   return (
     <button
@@ -24,9 +22,9 @@ const Button = ({
         `
         flex 
         justify-center 
-        px-${px}
-        py-${py} 
-        text-${text} 
+        px-3 
+        py-2 
+        text-${text?text:"sm"} 
         font-semibold 
         focus-visible:outline 
         focus-visible:outline-2 
@@ -42,8 +40,8 @@ const Button = ({
         danger &&
           "bg-rose-500 hover:bg-rose-600 focus-visible:outline-rose-600",
         !secondary &&
-          !danger &&
-          "bg-[#43C7AB] hover:bg-sky-600 focus-visible:outline-sky-600",
+        !danger &&
+        "bg-[#43C7AB] hover:bg-sky-600 focus-visible:outline-sky-600",
         rounded ? "rounded-[50px]" : "rounded-md"
       )}>
       {children}

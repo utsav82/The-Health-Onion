@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -76,7 +77,7 @@ const Footer = () => {
             ©2022-23 The Health Onion. All rights reserved.
           </p>
         </div>
-        <div className="hidden md:block w-60 h-56 bg-[#F5F5F5] rounded-xl">
+        <div className="hidden md:flex w-60 h-56 bg-[#F5F5F5] rounded-xl items-center justify-center">
           About Us
         </div>
         <div className="hidden md:block w-60 h-56 bg-[#F5F5F5] rounded-xl p-5 space-y-2  items-center justify-center drop-shadow-md">
