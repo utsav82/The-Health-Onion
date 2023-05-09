@@ -7,14 +7,17 @@ const Logo = () => {
   const router = useRouter();
 
   return ( 
+   
     <Image
       onClick={() => router.push('/')}
-      className="block cursor-pointer " 
+      className="block cursor-pointer h-auto w-24 pl-5" 
       src="/images/Onion.png" 
-      height="80" 
-      width="80" 
+      height={100}
+      width={100}
+      priority
       alt="Logo" 
     />
+    
    );
 }
  

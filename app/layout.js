@@ -6,6 +6,9 @@ import Navbar from "./components/Navbar/Navbar";
 export const metadata = {
   title: "The Health Onion",
   description: "Stay Healthy",
+  icons: {
+    icon: 'app/assets/Onion.png', 
+  },
 };
 const font = Nunito({
   subsets: ["latin"],

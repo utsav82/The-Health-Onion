@@ -71,6 +71,7 @@ const AuthForm = () => {
           sm:px-10
         "
       >
+        <h1 className="text-center py-5 font-bold text-2xl ">{variant}</h1>
         <form 
           className="space-y-6" 
           onSubmit={handleSubmit(onSubmit)}
