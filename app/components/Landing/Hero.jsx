@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import old_man from "../../assets/old_man.png";
-
+import Button from "../Button";
 const Hero = () => {
   return (
     <div className="background_1 h-screen max-w-screen mx-auto flex flex-col md:flex-row items-center justify-around p-4">
@@ -19,16 +19,17 @@ const Hero = () => {
           forums, and opportunities to connect with others who share your health
           goals
         </p>
-        <div>
-          {/* {<Button
-        backgroundColor={"#5ABC72"}
-        px="10px"
-        py="20px"
-        color={"#fff"}
-        borderRadius={"20px"}
-        width={"150px"}>
-        Register Now
-      </Button>} */}
+        <div className="hidden md:block mt-5 animate-fade-right animate-once animate-duration-1000 animate-delay-500 animate-ease-in-out animate-fill-both">
+          <Button
+            backgroundColor={"bg-[#5ABC72]"}
+            px={"5"}
+            py={"2"}
+            text={"md"}
+            color={"#fff"}
+            rounded={"20px"}
+            width={"150px"}>
+            Register Now
+          </Button>
         </div>
       </div>
       <div>
