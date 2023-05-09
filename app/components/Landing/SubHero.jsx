@@ -5,8 +5,8 @@ import old_man_2 from "../../assets/old_man_2.png";
 import Link from "next/link";
 const SubHero = () => {
   return (
-    <div className="background_2 flex flex-col md:flex-row items-center justify-around">
-      <div className="flex felx-row items-center justify-evenly gap-6 animate-fade-up animate-once animate-duration-1000 animate-delay-500 animate-ease-in-out animate-fill-both">
+    <div className="background_2 flex flex-col lg:flex-row items-center justify-around p-8">
+      <div className="flex flex-row items-center justify-evenly gap-6 animate-fade-up animate-once animate-duration-1000 animate-delay-500 animate-ease-in-out animate-fill-both">
         <Image
           src={old_man_2}
           height="500"
@@ -14,7 +14,7 @@ const SubHero = () => {
           alt="Hero-Image-Old-Man"
           className="object-cover w-[200px] md:w-[300px]"
         />
-        <div className="center">
+        <div className="center px-5">
           <h1 className="text-2xl md:text-5xl font-semibold text-[azure]">
             Join the community
           </h1>
@@ -23,7 +23,7 @@ const SubHero = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-col md:w-3/12	items-center p-4 animate-fade-up animate-once animate-duration-1000 animate-delay-500 animate-ease-in-out animate-fill-both">
+      <div className="flex flex-col lg:w-3/12	items-center p-4 animate-fade-up animate-once animate-duration-1000 animate-delay-500 animate-ease-in-out animate-fill-both">
         <h1 className="text-xl md:text-2xl font-semibold text-[azure]">
           Take Control of Your Health
         </h1>
@@ -33,7 +33,7 @@ const SubHero = () => {
           tools, and engaging forums where you can connect with others who share
           your goals
         </p>
-        <div className="mt-1.5">
+        <div className="mt-3">
         <Link href="/auth">
           <Button rounded>
             Sign Up

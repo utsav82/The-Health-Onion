@@ -77,10 +77,10 @@ const Footer = () => {
             ©2022-23 The Health Onion. All rights reserved.
           </p>
         </div>
-        <div className="hidden md:flex w-60 h-56 bg-[#F5F5F5] rounded-xl items-center justify-center">
+        <div className="hidden lg:flex w-60 h-56 bg-[#F5F5F5] rounded-xl items-center justify-center">
           About Us
         </div>
-        <div className="hidden md:block w-60 h-56 bg-[#F5F5F5] rounded-xl p-5 space-y-2  items-center justify-center drop-shadow-md">
+        <div className="hidden lg:block w-60 h-56 bg-[#F5F5F5] rounded-xl p-5 space-y-2  items-center justify-center drop-shadow-md">
           <h3>Subscribe to our newsletter</h3>
           <div>
             <form className="bg-white flex items-center justify-between px-1 rounded-lg">
@@ -89,7 +89,7 @@ const Footer = () => {
             </form>
           </div>
         </div>
-        <div className="hidden md:flex md:flex-col w-60 h-56 bg-[#F5F5F5] rounded-xl p-5 space-y-2  items-center justify-center drop-shadow-md">
+        <div className="hidden sm:flex flex-col w-60 h-56 bg-[#F5F5F5] rounded-xl p-5 space-y-2  items-center justify-center drop-shadow-md">
           <p className="text-sm font-bold">
             ©2022-23 The Health Onion. All rights reserved.
           </p>

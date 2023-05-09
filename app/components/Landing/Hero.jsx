@@ -6,7 +6,7 @@ import Link from "next/link";
 const Hero = () => {
 
   return (
-    <div className="background_1 h-screen max-w-screen mx-auto flex flex-col md:flex-row items-center justify-around p-4">
+    <div className="background_1 h-auto sm:h-screen max-w-screen mx-auto flex flex-col md:flex-row items-center justify-around p-10 sm:p-6 ">
       <div>
         <h1 className="text-4xl md:text-7xl font-bold text-[azure] animate-fade-right animate-duration-1000 animate-delay-100 animate-ease-in-out ">
           What is
@@ -21,7 +21,7 @@ const Hero = () => {
           forums, and opportunities to connect with others who share your health
           goals
         </p>
-        <div className="hidden md:block mt-5 animate-fade-right animate-once animate-duration-1000 animate-delay-500 animate-ease-in-out animate-fill-both">
+        <div className="block mt-5 animate-fade-right animate-once animate-duration-1000 animate-delay-500 animate-ease-in-out animate-fill-both">
           <Link href="/auth">
           <Button
             width={"w-[200px]"}
@@ -37,8 +37,8 @@ const Hero = () => {
       <div>
         <Image
           src={old_man}
-          height="600"
-          width="600"
+          height="500"
+          width="500"
           alt="Hero-Image-Old-Man"
           className="object-cover h-auto animate-fade-left animate-once animate-duration-1000 animate-delay-100 animate-ease-in-out animate-fill-both"></Image>
       </div>
