@@ -7,3 +7,14 @@ body,root: {
   height: 100%;
   width: 100%;
 }
+
+.background{
+  background: linear-gradient(
+    90deg,
+    #3b946a 0%,
+    #289683 26.88%,
+    #267e88 50.55%,
+    #1f5a83 75.6%,
+    #1a2f69 95.93%
+  );
+}

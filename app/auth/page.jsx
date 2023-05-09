@@ -1,9 +1,11 @@
-import React from 'react'
+"use client";
+
+import React from "react";
 
 function Auth() {
   return (
     <div
-        className="
+      className="
           justify-center 
           items-center 
           flex 
@@ -15,11 +17,10 @@ function Auth() {
           outline-none 
           focus:outline-none
           bg-neutral-800/70
-        "
-      >
+        ">
       Auth page
     </div>
-  )
+  );
 }
 
-export default Auth
+export default Auth;
