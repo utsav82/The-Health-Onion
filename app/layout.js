@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Nunito } from "next/font/google";
 import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer"
+import Footer from "./components/Footer/Footer";
 
 export const metadata = {
   title: "The Health Onion",
