@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Button from "../Button";
 import old_man_2 from "../../assets/old_man_2.png";
+import Link from "next/link";
 const SubHero = () => {
   return (
     <div className="background_2 flex flex-col md:flex-row items-center justify-around">
@@ -33,9 +34,11 @@ const SubHero = () => {
           your goals
         </p>
         <div className="mt-1.5">
+        <Link href="/auth">
           <Button rounded>
             Sign Up
           </Button>
+         </Link>
         </div>
       </div>
     </div>
