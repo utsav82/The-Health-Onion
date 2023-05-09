@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Button from "../Button";
 import old_man_2 from "../../assets/old_man_2.png";
 const SubHero = () => {
   return (
@@ -31,15 +32,17 @@ const SubHero = () => {
           tools, and engaging forums where you can connect with others who share
           your goals
         </p>
-        {/* <Button
-          backgroundColor={"#21B9C4"}
-          px="10px"
-          py="20px"
-          color={"#fff"}
-          borderRadius={"20px"}
-          width={"100px"}>
-          Sign Up
-        </Button> */}
+        <div className="mt-1.5">
+          <Button
+            backgroundColor={"bg-[#21B9C4]"}
+            px="5"
+            py="2"
+            color={"#fff"}
+            rounded={"20px"}
+            width={"w-[100px]"}>
+            Sign Up
+          </Button>
+        </div>
       </div>
     </div>
   );

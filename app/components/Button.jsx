@@ -2,6 +2,7 @@
 import clsx from "clsx";
 const Button = ({
   type = "button",
+  width,
   fullWidth,
   children,
   onClick,
@@ -12,7 +13,7 @@ const Button = ({
   backgroundColor,
   px,
   py,
-  text
+  text,
 }) => {
   return (
     <button
@@ -34,6 +35,7 @@ const Button = ({
         transition-transform		
         `,
         backgroundColor,
+        width,
         disabled && "opacity-50 cursor-default",
         fullWidth && "w-full",
         secondary ? "text-gray-900" : "text-white",
