@@ -29,7 +29,7 @@ const Button = ({
         focus-visible:outline 
         focus-visible:outline-2 
         focus-visible:outline-offset-2 
-        hover:scale-110
+        hover:scale-105
         transition-transform		
         `,
         backgroundColor,

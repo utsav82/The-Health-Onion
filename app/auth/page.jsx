@@ -1,6 +1,7 @@
 
 import React from 'react'
 import Image from 'next/image'
+import AuthForm from './components/AuthForm'
 function Auth() {
   return (
     <div
@@ -19,11 +20,10 @@ function Auth() {
           z-5 
           bg-auth-bg
           bg-[#B4D7B1]
-          md:mt-5
           
         "
     >
-    hello
+    <AuthForm></AuthForm>
       
     </div>
   );

@@ -13,5 +13,10 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animated")],
+  plugins: [
+    require("tailwindcss-animated"),
+    require("@tailwindcss/forms")({
+      strategy: "class",
+    }),
+  ],
 };
