@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 html,
-body,root: {
+body,root {
   height: 100%;
   width: 100%;
 }
 
-.background{
+.background_1{
   background: linear-gradient(
     90deg,
     #3b946a 0%,
@@ -17,4 +17,8 @@ body,root: {
     #1f5a83 75.6%,
     #1a2f69 95.93%
   );
+}
+.background_2{
+  background: linear-gradient(90deg, rgba(34, 151, 120, 1) 0%, rgba(37, 127, 122, 1) 26.86%, rgba(33, 91, 118, 1) 49.31%, rgba(28, 65, 96, 1) 74.56%, rgba(20, 30, 92, 1) 100%);
+
 }
