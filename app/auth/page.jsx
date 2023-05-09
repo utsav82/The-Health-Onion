@@ -1,7 +1,6 @@
-"use client";
 
-import React from "react";
-
+import React from 'react'
+import Image from 'next/image'
 function Auth() {
   return (
     <div
@@ -12,13 +11,19 @@ function Auth() {
           overflow-x-hidden 
           overflow-y-auto 
           fixed 
-          inset-0 
+          h-full
+          w-full
+          bg-cover
+          bg-center
+          bg-no-repeat
           z-50 
-          outline-none 
-          focus:outline-none
-          bg-neutral-800/70
-        ">
-      Auth page
+          bg-auth-bg
+          bg-[#B4D7B1]
+          
+        "
+    >
+    hello
+      
     </div>
   );
 }
