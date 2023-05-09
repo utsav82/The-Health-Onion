@@ -4,7 +4,6 @@ import old_man from "../../assets/old_man.png";
 import Button from "../Button";
 import Link from "next/link";
 const Hero = () => {
-
   return (
     <div className="background_1 h-screen max-w-screen mx-auto flex flex-col md:flex-row items-center justify-around p-4">
       <div>
@@ -23,14 +22,13 @@ const Hero = () => {
         </p>
         <div className="hidden md:block mt-5 animate-fade-right animate-once animate-duration-1000 animate-delay-500 animate-ease-in-out animate-fill-both">
           <Link href="/auth">
-          <Button
-            width={"w-[200px]"}
-            backgroundColor={"bg-[#5ABC72]"}
-            rounded
-            text={"lg"}
-           >
-            Register Now
-          </Button>
+            <Button
+              width={"w-[200px]"}
+              backgroundColor={"bg-[#5ABC72]"}
+              rounded
+              text={"lg"}>
+              Register Now
+            </Button>
           </Link>
         </div>
       </div>

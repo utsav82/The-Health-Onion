@@ -35,7 +35,7 @@ const SubHero = () => {
         </p>
         <div className="mt-1.5">
         <Link href="/auth">
-          <Button rounded>
+          <Button rounded width={"w-[150px]"} text={"md"}>
             Sign Up
           </Button>
          </Link>
