@@ -60,7 +60,7 @@ const AuthForm = () => {
   } 
 
   return ( 
-    <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div className= {`sm:mx-auto sm:w-full sm:max-w-md `+(variant === 'REGISTER'?"mt-36 w-[80%]":"mt-8")}>
       <div 
         className="
         bg-white
@@ -71,7 +71,7 @@ const AuthForm = () => {
           sm:px-10
         "
       >
-        <h1 className="text-center py-5 font-bold text-2xl ">{variant}</h1>
+        <h1 className="text-center sm:py-5 font-bold text-2xl ">{variant}</h1>
         <form 
           className="space-y-6" 
           onSubmit={handleSubmit(onSubmit)}
