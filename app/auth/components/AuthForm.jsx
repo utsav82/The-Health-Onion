@@ -60,7 +60,7 @@ const AuthForm = () => {
   } 
 
   return ( 
-    <div className= {`sm:mx-auto sm:w-full sm:max-w-md `+(variant === 'REGISTER'?"mt-36 w-[80%]":"mt-8")}>
+    <div className= {`z-50 sm:mx-auto sm:w-full sm:max-w-md `+(variant === 'REGISTER'?"mt-36 w-[80%]":"mt-8")}>
       <div 
         className="
         bg-white
