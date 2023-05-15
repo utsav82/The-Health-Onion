@@ -13,14 +13,14 @@ const Hero = () => {
         <h1 className="text-3xl md:text-7xl font-bold text-[azure] animate-fade-right animate-duration-1000 animate-delay-100 animate-ease-in-out mt-1" >
           The Health Onion?
         </h1>
-        <p className="my-2.5 text-base md:text-2xl font-semibold text-[azure] md:w-[500px] animate-fade-right animate-duration-1000 animate-delay-500 animate-ease-in-out">
+        <p className="my-8 text-base md:text-2xl font-semibold text-[azure] md:w-[500px] animate-fade-right animate-duration-1000 animate-delay-500 animate-ease-in-out">
           Our platform is dedicated to fostering a community of individuals who
           share a common interest in promoting health and wellness. By joining
           our community, you will gain access to expert resources, engaging
           forums, and opportunities to connect with others who share your health
           goals
         </p>
-        <div className="block my-5 animate-fade-right animate-once animate-duration-1000 animate-delay-500 animate-ease-in-out animate-fill-both">
+        <div className="inline-block my-5 animate-fade-right animate-once animate-duration-1000 animate-delay-500 animate-ease-in-out animate-fill-both">
           <Link href="/auth">
             <Button
               width={"w-[200px]"}
