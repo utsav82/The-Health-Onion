@@ -38,7 +38,6 @@ const Hero = () => {
           height="500"
           width="500"
           alt="Hero-Image-Old-Man"
-          
           className="object-cover h-auto animate-fade-left animate-once animate-duration-1000 animate-delay-100 animate-ease-in-out animate-fill-both"></Image>
       </div>
     </div>

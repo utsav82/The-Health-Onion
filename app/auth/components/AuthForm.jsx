@@ -1,5 +1,4 @@
 'use client';
-
 import axios from "axios";
 import { signIn, useSession } from 'next-auth/react';
 import { useCallback, useEffect, useState } from 'react';
@@ -60,7 +59,7 @@ const AuthForm = () => {
   } 
 
   return ( 
-    <div className= {`z-50 sm:mx-auto sm:w-full sm:max-w-md `+(variant === 'REGISTER'?"mt-36 w-[80%]":"mt-8")}>
+    <div className= {`z-50 sm:mx-auto sm:w-full sm:max-w-md `}>
       <div 
         className="
         bg-white

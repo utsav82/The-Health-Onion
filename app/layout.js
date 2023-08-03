@@ -2,12 +2,11 @@ import "./globals.css";
 import { Nunito } from "next/font/google";
 import Navbar from "./components/Navbar/Navbar";
 
-
 export const metadata = {
   title: "The Health Onion",
   description: "Stay Healthy",
   icons: {
-    icon: 'app/assets/favicon.ico', 
+    icon: "app/assets/favicon.ico",
   },
 };
 const font = Nunito({
@@ -18,11 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={font.className}>
-        <Navbar></Navbar>
-        <div className="">    
         {children}
-        </div>
-    
       </body>
     </html>
   );

@@ -1,4 +1,3 @@
-'use client'
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -80,10 +79,10 @@ const Footer = () => {
         <div className="hidden lg:flex w-60 h-56 bg-[#F5F5F5] rounded-xl items-center justify-center">
           About Us
         </div>
-        <div className="hidden lg:block w-60 h-56 bg-[#F5F5F5] rounded-xl p-5 space-y-2  items-center justify-center drop-shadow-md">
-          <h3>Subscribe to our newsletter</h3>
+        <div className="hidden lg:flex flex-wrap w-60 h-56 bg-[#F5F5F5] rounded-xl p-5 space-y-2  items-center justify-center drop-shadow-md">
           <div>
-            <form className="bg-white flex items-center justify-between px-1 rounded-lg">
+          <h3>Subscribe to our newsletter</h3>
+            <form className="bg-white flex items-center justify-between px-1 rounded-lg mt-5">
               <input type="email" placeholder="Enter your Email" className="px-2 py-1 text-sm" />
               <button className="text-xl font-bold">→</button>
             </form>
