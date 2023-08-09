@@ -5,7 +5,7 @@ export const metadata = {
   title: "The Health Onion",
   description: "Stay Healthy",
   icons: {
-    icon: "app/assets/favicon.ico",
+    icon: "/favicon.ico",
   },
 };
 const font = Nunito({

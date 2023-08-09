@@ -1,14 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import Button from "../Button";
-import old_man_2 from "../../assets/old_man_2.png";
 import Link from "next/link";
 const SubHero = () => {
   return (
     <div className="background_2 max-w-screen flex flex-col lg:flex-row items-center justify-around p-8">
       <div className="flex flex-row items-center justify-evenly animate-fade-up animate-once animate-duration-1000 animate-delay-500 animate-ease-in-out animate-fill-both">
         <Image
-          src={old_man_2}
+          src="/images/old_man_2.png"
           height="500"
           width="500"
           alt="Hero-Image-Old-Man"

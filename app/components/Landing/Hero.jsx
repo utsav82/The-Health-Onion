@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import old_man from "../../assets/old_man.png";
 import Button from "../Button";
 import Link from "next/link";
 const Hero = () => {
@@ -34,7 +33,7 @@ const Hero = () => {
       </div>
       <div>
         <Image
-          src={old_man}
+          src="/images/old_man.png"
           height="500"
           width="500"
           alt="Hero-Image-Old-Man"
