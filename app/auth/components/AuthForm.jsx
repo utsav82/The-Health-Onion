@@ -6,9 +6,9 @@ import { BsGithub } from 'react-icons/bs';
 import{ FcGoogle } from "react-icons/fc"
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { useRouter } from "next/navigation";
-import Input from "app/components/Input.jsx";
+import Input from "app/components/ui/Input.jsx";
 import AuthSocialButton from './AuthSocialButton';
-import Button from "app/components/Button.jsx";
+import { Button } from "app/components/ui/button"
 
 
 const AuthForm = () => {
@@ -104,7 +104,7 @@ const AuthForm = () => {
             type="password"
           />
           <div>
-            <Button disabled={isLoading} fullWidth type="submit">
+            <Button disabled={isLoading} size="full" type="submit">
               {variant === 'LOGIN' ? 'Sign in' : 'Register'}
             </Button>
           </div>

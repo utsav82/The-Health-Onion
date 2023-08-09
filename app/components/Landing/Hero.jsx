@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import Button from "../Button";
+import { Button } from "../ui/button"
+
 import Link from "next/link";
 const Hero = () => {
   return (
@@ -20,15 +21,9 @@ const Hero = () => {
           goals
         </p>
         <div className="inline-block my-5 animate-fade-right animate-once animate-duration-1000 animate-delay-500 animate-ease-in-out animate-fill-both">
-          <Link href="/auth">
-            <Button
-              width={"w-[200px]"}
-              backgroundColor={"bg-[#5ABC72]"}
-              rounded
-              text={"lg"}>
-              Register Now
-            </Button>
-          </Link>
+          <Button asChild>
+            <Link href="/auth">Register Now</Link>
+          </Button>
         </div>
       </div>
       <div>

@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Button from "../Button";
+import { Button } from "../ui/button"
 import Link from "next/link";
 const SubHero = () => {
   return (
@@ -33,11 +33,9 @@ const SubHero = () => {
           your goals
         </p>
         <div className="mt-3">
-        <Link href="/auth">
-          <Button rounded width={"w-[150px]"} text={"md"}>
-            Sign Up
+        <Button asChild>
+            <Link href="/auth">Sign Up</Link>
           </Button>
-         </Link>
         </div>
       </div>
     </div>
