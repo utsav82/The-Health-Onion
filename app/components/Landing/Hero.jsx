@@ -29,7 +29,7 @@ const Hero = () => {
       <div>
         <Image
         unoptimized={true}
-          src="/images/Banner_img-transformed.png"
+          src="/images/doctor-team.png"
           height="600"
           width="600"
           alt="background"
