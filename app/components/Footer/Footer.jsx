@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 const Footer = () => {
   return (
-    <div className="background_1 absolute inset-x-0  md:relative">
+    <div className="background_1 absolute inset-x-0  md:relative text-card-foreground">
       <div className="flex flex-row gap-10 p-10 items-center justify-around bg-white rounded-t-3xl">
         <div className="w-60 h-56 bg-[#F5F5F5] rounded-xl p-5 space-y-0 flex flex-col items-center justify-center drop-shadow-md">
           <Image

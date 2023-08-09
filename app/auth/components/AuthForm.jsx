@@ -62,7 +62,8 @@ const AuthForm = () => {
     <div className= {`z-50 sm:mx-auto sm:w-full sm:max-w-md `}>
       <div 
         className="
-        bg-white
+          bg-white
+          text-card-foreground
           px-4
           py-8
           shadow
