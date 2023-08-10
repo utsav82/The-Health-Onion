@@ -75,7 +75,7 @@ const AuthForm = () => {
           }
           else if (callback?.ok) {
             toast.success("Logged in")
-            router.push("/communities");
+            router.redirect("/communities");
 
           }
 

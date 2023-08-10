@@ -1,11 +1,20 @@
-'use client' 
-import {signOut} from "next-auth/react"
-const page = () => {
+import { redirect } from "next/navigation"
+import { getCurrentUser } from "app/libs/session"
+
+export const metadata = {
+  title: "Communities",
+}
+
+export default async function CommunitiesPage() {
+  const user = await getCurrentUser()
+
+  if (!user) {
+    redirect("/auth")
+  }
+
   return (
-    <div className='text-card-foreground'>
-     <button onClick={()=>signOut()}>logout</button> 
+    <div>
+      hello ji
     </div>
   )
 }
-
-export default page;
