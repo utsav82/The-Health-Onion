@@ -10,22 +10,14 @@ import Input from "app/components/ui/Input.jsx";
 import AuthSocialButton from './AuthSocialButton';
 import { Button } from "app/components/ui/button"
 import { toast } from "react-hot-toast";
+import { useSearchParams } from "next/navigation"
 
 
 const AuthForm = () => {
-  const session = useSession();
-  const router = useRouter();
+  const searchParams = useSearchParams()
   const [variant, setVariant] = useState('LOGIN');
   const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    if (session?.status === "authenticated") {
-      console.log("Authenticated");
-      router.push("/communities");
-    }
-  }
-    , [session?.status]
-  )
+  const router = useRouter();
 
   const toggleVariant = useCallback(() => {
     if (variant === 'LOGIN') {
@@ -58,7 +50,8 @@ const AuthForm = () => {
       axios.post("/api/register", data)
         .then(() => {
           toast.success("Registered");
-          signIn('credentials', data);
+          signIn('credentials', data)
+          router.push(searchParams?.get("from") || "/dashboard");
         })
         .catch(() => toast.error("Something went wrong"))
         .finally(() => setIsLoading(false));
@@ -67,7 +60,7 @@ const AuthForm = () => {
     if (variant === 'LOGIN') {
       signIn("credentials", {
         ...data,
-        redirect: false
+        redirect: false,
       })
         .then((callback) => {
           if (callback?.error) {
@@ -75,7 +68,7 @@ const AuthForm = () => {
           }
           else if (callback?.ok) {
             toast.success("Logged in")
-            router.redirect("/communities");
+            router.push(searchParams?.get("from") || "/dashboard");
 
           }
 

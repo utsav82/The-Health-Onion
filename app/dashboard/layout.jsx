@@ -1,11 +1,8 @@
 import { redirect } from "next/navigation"
 import { getCurrentUser } from "app/libs/session"
-
-export const metadata = {
-  title: "Communities",
-}
-
-export default async function CommunitiesPage() {
+export default async function CommunitiesLayout({
+  children,
+}) {
   const user = await getCurrentUser()
 
   if (!user) {
@@ -13,8 +10,11 @@ export default async function CommunitiesPage() {
   }
 
   return (
-    <div>
-      hello ji
-    </div>
+
+    <main className="flex w-full flex-1 flex-col overflow-hidden">
+      {children}
+    </main>
+
+
   )
 }

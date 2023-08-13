@@ -8,7 +8,7 @@ export const metadata = {
 }
 function Auth() {
   return (
-    <AuthContext>
+
       <div
         className="
           pt-36
@@ -38,7 +38,7 @@ function Auth() {
           <Image unoptimized={true} alt="yoga auth bg" src="/images/yoga.png" className='w-64 lg:w-64 xl:w-96 h-auto' width="100" height="100" ></Image>
         </div>
       </div>
-    </AuthContext>
+
   );
 }
 
