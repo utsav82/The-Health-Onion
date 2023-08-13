@@ -39,6 +39,12 @@ export default function UserAccountNav({ user }) {
           <Link href="/dashboard">Dashboard</Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
+          <Link href="/communities">Communities</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="/support">Support</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
           <Link href="/dashboard/settings">Settings</Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
