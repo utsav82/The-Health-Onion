@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation"
 import { getCurrentUser } from "app/libs/session"
-import UserAccountNav from "../components/user-account-nav"
-import MainNav from "../components/main-nav"
+import UserAccountNav from "app/components/user-account-nav"
+import MainNav from "app/components/main-nav"
 
 export default async function CommunitiesLayout({
   children,

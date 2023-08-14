@@ -14,16 +14,17 @@ export default function MainNav() {
         </span>
       </Link>
         <nav className="hidden gap-6 sm:flex">
+        <Link
+              href={"/dashboard"}
+              className="flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm">
+              Dashboard
+            </Link>
             <Link
-              href={"communities"}
+              href={"/communities"}
               className="flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm">
               Communities
             </Link>
-            <Link
-              href={"support"}
-              className="flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm">
-              Support
-            </Link>
+           
         </nav>
     </div>
   )

@@ -1,10 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import { Button } from "../ui/button"
+import TopHero from './TopHero'
 
 import Link from "next/link";
 const Hero = () => {
   return (
+    <>
+    <TopHero></TopHero>
     <div className="background_1 h-auto sm:h-screen mx-auto flex flex-col md:flex-row items-center justify-around p-10 sm:p-6 ">
       <div className="md:mt-5">
         <h1 className="text-3xl md:text-7xl font-bold  animate-fade-right animate-duration-1000 animate-delay-100 animate-ease-in-out ">
@@ -36,6 +39,7 @@ const Hero = () => {
           className="object-cover h-auto animate-fade-left animate-once animate-duration-1000 animate-delay-100 animate-ease-in-out animate-fill-both"></Image>
       </div>
     </div>
+    </>
   );
 };
 

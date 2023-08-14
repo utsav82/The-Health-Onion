@@ -1,72 +1,72 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
     --background: 120, 54%, 91%;
     --foreground: 180, 100%, 97%;
-  
+    --dark-foreground: 0, 0%, 0%;
+
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-  
+
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-  
+
     --primary: 136, 56%, 47%;
     --primary-foreground: 210 40% 98%;
-  
-    --secondary: 169, 52%, 83%;
+
+    --secondary: 194, 73%, 70%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-  
+
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-  
-    --accent: 197 61% 40%
+
+    --accent: 197, 75%, 47%;
     --accent-foreground: 222.2 47.4% 11.2%;
-  
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-  
+
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
-  
+
     --radius: 0.5rem;
   }
- 
- .dark {
-  --background: 107, 60%, 6%;
-  --foreground: 109, 60%, 93%;
 
-  --card: 107, 60%, 6%;
-  --card-foreground: 109, 60%, 93%;
+  .dark {
+    --background: 107, 60%, 6%;
+    --foreground: 109, 60%, 93%;
 
-  --popover: 107, 60%, 6%;
-  --popover-foreground: 109, 60%, 93%;
+    --card: 107, 60%, 6%;
+    --card-foreground: 109, 60%, 93%;
 
-  --primary: 137, 58%, 50%;
-  --primary-foreground: 167, 58%, 73%;
+    --popover: 107, 60%, 6%;
+    --popover-foreground: 109, 60%, 93%;
 
-  --secondary: 173, 60%, 3%;
-  --secondary-foreground: 109, 60%, 93%;
+    --primary: 137, 58%, 50%;
+    --primary-foreground: 167, 58%, 73%;
 
-  --muted: 173, 60%, 3%;
-  --muted-foreground: 215, 20.2%, 65.1%;
+    --secondary: 173, 60%, 3%;
+    --secondary-foreground: 109, 60%, 93%;
 
-  --accent: 173, 60%, 3%;
-  --accent-foreground: 109, 60%, 93%;
+    --muted: 173, 60%, 3%;
+    --muted-foreground: 215, 20.2%, 65.1%;
 
-  --destructive: 0, 62.8%, 30.6%;
-  --destructive-foreground: 109, 60%, 93%;
+    --accent: 173, 60%, 3%;
+    --accent-foreground: 109, 60%, 93%;
 
-  --border: 173, 60%, 3%;
-  --input: 173, 60%, 3%;
-  --ring: 212.7, 26.8%, 83.9;
+    --destructive: 0, 62.8%, 30.6%;
+    --destructive-foreground: 109, 60%, 93%;
+
+    --border: 173, 60%, 3%;
+    --input: 173, 60%, 3%;
+    --ring: 212.7, 26.8%, 83.9;
+  }
 }
 
-}
- 
 @layer base {
   * {
     @apply border-border;
@@ -75,11 +75,11 @@
     @apply bg-background text-foreground;
   }
 }
-.background_1{
-  background-image:url("/images/stacked-peaks-haikei.png");
+.background_1 {
+  background-image: url("/images/stacked-peaks-haikei.png");
   background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
   /* background: linear-gradient(
     90deg,
     #3b946a 0%,
@@ -89,7 +89,27 @@ background-size: cover;
     #1a2f69 95.93%
   ); */
 }
-.background_2{
-  background: linear-gradient(90deg, rgba(34, 151, 120, 1) 0%, rgba(37, 127, 122, 1) 26.86%, rgba(33, 91, 118, 1) 49.31%, rgba(28, 65, 96, 1) 74.56%, rgba(20, 30, 92, 1) 100%);
-
+.background_0 {
+  background-image: url("/images/layered-waves-haikei.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background: linear-gradient(
+    90deg,
+    #3b946a 0%,
+    #289683 26.88%,
+    #267e88 50.55%,
+    #1f5a83 75.6%,
+    #1a2f69 95.93%
+  ); */
+}
+.background_2 {
+  background: linear-gradient(
+    90deg,
+    rgba(34, 151, 120, 1) 0%,
+    rgba(37, 127, 122, 1) 26.86%,
+    rgba(33, 91, 118, 1) 49.31%,
+    rgba(28, 65, 96, 1) 74.56%,
+    rgba(20, 30, 92, 1) 100%
+  );
 }

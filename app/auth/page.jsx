@@ -1,7 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
 import AuthForm from './components/AuthForm'
-import AuthContext from "app/context/AuthContext";
+import { buttonVariants } from "app/components/ui/button"
+import Link from 'next/link'
+import { cn } from "app/libs/utils"
+import { ArrowLeft } from "lucide-react/dist/esm/lucide-react"
 export const metadata = {
   title: "Login/Signup",
   description: "Create/Login to your account",
@@ -27,6 +30,13 @@ function Auth() {
         
         "
       >
+         <Link
+        href="/"
+        className={cn(
+          buttonVariants({ variant: "ghost" }),
+          "absolute left-4 top-4 md:left-8 md:top-8"
+        )}
+      ><ArrowLeft></ArrowLeft></Link>
         <div className='z-0 fixed bottom-0 left-0'>
           <Image alt="design" src="/images/bg-left.png" className='w-64 h-auto' width="100" height="100" ></Image>
         </div>

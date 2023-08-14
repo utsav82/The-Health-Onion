@@ -1,6 +1,7 @@
 import {
     AlertTriangle,
     ArrowRight,
+    ArrowLeft,
     Check,
     ChevronLeft,
     ChevronRight,
@@ -69,5 +70,6 @@ import {
     ),
     twitter: Twitter,
     check: Check,
+    arrowLeft: ArrowLeft 
   }
   
