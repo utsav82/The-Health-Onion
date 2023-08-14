@@ -11,6 +11,7 @@ import AuthSocialButton from './AuthSocialButton';
 import { Button } from "app/components/ui/button"
 import { toast } from "react-hot-toast";
 import { useSearchParams } from "next/navigation"
+import { ReloadIcon } from "@radix-ui/react-icons"
 
 
 const AuthForm = () => {
@@ -142,7 +143,10 @@ const AuthForm = () => {
           />
           <div>
             <Button disabled={isLoading} size="full" type="submit">
-              {variant === 'LOGIN' ? 'Sign in' : 'Register'}
+
+              {isLoading ? <ReloadIcon className="mr-2 h-4 w-4 animate-spin" /> : (variant === 'LOGIN' ? 'Sign in' : 'Register')}
+              {isLoading ? "Please wait" : ""}
+
             </Button>
           </div>
         </form>

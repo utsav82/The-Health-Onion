@@ -10,27 +10,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id              String @id @default(auto()) @map("_id") @db.ObjectId
-  name            String?
-  email           String?   @unique
-  emailVerified   DateTime?
-  doctorVerified  Boolean?
-  image           String?
-  hashedPassword  String?
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-
-  conversationIds String[] @db.ObjectId
-  conversations Conversation[] @relation(fields: [conversationIds], references: [id])
-  
-
-  accounts Account[]
-  messages Message[]
+enum VoteType {
+  UP
+  DOWN
 }
 
 model Account {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+   id String @id @default(auto()) @map("_id") @db.ObjectId
   userId             String   @db.ObjectId
   type               String
   provider           String
@@ -48,29 +34,88 @@ model Account {
   @@unique([provider, providerAccountId])
 }
 
-model Conversation {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  createdAt       DateTime @default(now())
-  lastMessageAt DateTime @default(now())
-  name String?
-  isGroup Boolean?
-  
-  messagesIds String[] @db.ObjectId
-  messages Message[]
-
-  userIds String[] @db.ObjectId
-  users User[] @relation(fields: [userIds], references: [id])
+model User {
+  id               String         @id @default(auto()) @map("_id") @db.ObjectId
+  name             String?
+  email            String?        @unique
+  emailVerified    DateTime?
+  doctorVerified   Boolean?       @default(false)
+  hashedPassword   String?
+  createdCommunity Community[]    @relation("CreatedBy")
+  subscriptions    Subscription[]
+  votes            Vote[]
+  image        String?
+  accounts     Account[]
+  posts        Post[]
+  comments     Comment[]
+  commentVotes CommentVote[]
 }
 
-model Message {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  body String?
-  image String?
+model Community {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String   @unique
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  posts     Post[]
 
-  conversationId String @db.ObjectId
-  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
-  
-  senderId String @db.ObjectId
-  sender User @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  creatorId   String?        @db.ObjectId
+  creator     User?          @relation("CreatedBy", fields: [creatorId], references: [id])
+  subscribers Subscription[]
+}
+
+model Subscription {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  user        User      @relation(fields: [userId], references: [id])
+  userId      String    @db.ObjectId
+  community   Community @relation(fields: [communityId], references: [id])
+  communityId String    @db.ObjectId
+}
+
+model Post {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  content     Json?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  author      User      @relation(fields: [authorId], references: [id])
+  authorId    String    @db.ObjectId
+  community   Community @relation(fields: [communityId], references: [id])
+  communityId String    @db.ObjectId
+  comments    Comment[]
+  votes       Vote[]
+}
+
+model Comment {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  text      String
+  createdAt DateTime @default(now())
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String   @db.ObjectId
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId    String   @db.ObjectId
+
+  replyToId String?   @db.ObjectId
+  replyTo   Comment?  @relation("ReplyTo", fields: [replyToId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  replies   Comment[] @relation("ReplyTo")
+
+  commentVotes CommentVote[]
+  commentId    String?
+}
+
+model Vote {
+  id     String   @id @default(auto()) @map("_id") @db.ObjectId
+  user   User     @relation(fields: [userId], references: [id])
+  userId String   @db.ObjectId
+  post   Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId String   @db.ObjectId
+  type   VoteType
+}
+
+model CommentVote {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @db.ObjectId
+  comment   Comment  @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  commentId String   @db.ObjectId
+  type      VoteType
 }
