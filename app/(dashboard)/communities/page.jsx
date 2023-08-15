@@ -2,9 +2,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className='text-black'>
-      Communities page
-    </div>
+    <div>Community page</div>
   )
 }
 
