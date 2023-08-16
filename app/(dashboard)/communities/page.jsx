@@ -1,6 +1,6 @@
 import { DashboardHeader } from "app/components/header";
 import CommunityCreateButton from "./components/community-create-button";
-import CommunitiesList from "./components/CommunitiesList";
+import CommunitiesList from "./components/CommunitiesList.jsx";
 import DialogDemo from "./components/create-community-form";
 export const metadata = {
   title: "Communities",
