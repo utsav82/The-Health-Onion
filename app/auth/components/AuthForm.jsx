@@ -6,7 +6,7 @@ import { BsGithub } from 'react-icons/bs';
 import { FcGoogle } from "react-icons/fc"
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { useRouter } from "next/navigation";
-import Input from "app/components/ui/Input.jsx";
+import Input from "app/components/Input.jsx";
 import AuthSocialButton from './AuthSocialButton';
 import { Button } from "app/components/ui/button"
 import { toast } from "react-hot-toast";
