@@ -1,9 +1,29 @@
-import React from 'react'
 
-const page = () => {
-  return (
-    <div>Community page</div>
-  )
+import { DashboardHeader } from "app/components/header"
+import CommunityCreateButton from "./components/community-create-button"
+import CommunitiesList from "./components/CommunitiesList"
+export const metadata = {
+  title: "Communities",
+
 }
 
-export default page
+export default async function Community() {
+
+
+  return (
+    <div className="container">
+      <div className="text-black flex justify-between">
+        <DashboardHeader
+          heading="Communities"
+          text="Follow communities that suit you"
+        />
+        <CommunityCreateButton />
+      </div>
+      <div>
+        <CommunitiesList />
+      </div>
+    </div>
+
+
+  )
+}
