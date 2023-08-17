@@ -16,18 +16,18 @@ enum VoteType {
 }
 
 model Account {
-   id String @id @default(auto()) @map("_id") @db.ObjectId
-  userId             String   @db.ObjectId
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.String
-  access_token       String?  @db.String
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.String
-  session_state      String?
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String  @db.ObjectId
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.String
+  access_token      String? @db.String
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.String
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -44,20 +44,21 @@ model User {
   createdCommunity Community[]    @relation("CreatedBy")
   subscriptions    Subscription[]
   votes            Vote[]
-  image        String?
-  accounts     Account[]
-  posts        Post[]
-  comments     Comment[]
-  commentVotes CommentVote[]
+  image            String?
+  accounts         Account[]
+  posts            Post[]
+  comments         Comment[]
+  commentVotes     CommentVote[]
 }
 
 model Community {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  name      String   @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  image     String?
-  posts     Post[]
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String   @unique
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  image       String?
+  description String?
+  posts       Post[]
 
   creatorId   String?        @db.ObjectId
   creator     User?          @relation("CreatedBy", fields: [creatorId], references: [id])

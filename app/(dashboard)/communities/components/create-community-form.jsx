@@ -21,6 +21,7 @@ import { toast } from "react-hot-toast";
 export default function Create({ variant }) {
 
   const [name, setName] = useState("");
+  const [desc, setDesc] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -30,6 +31,7 @@ export default function Create({ variant }) {
     setIsLoading(true);
     const payload = {
       name: name,
+      description: desc
     }
     try {
       const { data } = await axios.post('/api/community', payload)
@@ -85,11 +87,17 @@ export default function Create({ variant }) {
             </Label>
             <Input id="name" value={name} onChange={(e) => setName(e.target.value)} className="col-span-3 bg-gray-700" />
           </div>
+          <div className="grid grid-cols-4 items-center gap-4 ">
+            <Label htmlFor="desc" className="text-right justify-self-center">
+              Description
+            </Label>
+            <Input id="desc" value={desc} onChange={(e) => setDesc(e.target.value)} className="col-span-3 bg-gray-700" />
+          </div>
         </div>
         <DialogFooter>
           <Button
-            isLoading={isLoading}
-            disabled={name.length === 0}
+            isloading={isLoading.toString()}
+            disabled={name.length === 0 || desc.length == 0}
             onClick={() => createCommunity()}
           >
             Submit</Button>

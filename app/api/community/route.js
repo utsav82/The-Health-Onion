@@ -10,7 +10,7 @@ export async function POST(req) {
     }
 
     const body = await req.json();
-    const { name } = body;
+    const { name , description } = body;
 
     if (name.length < 3 || name.length > 21) {
       return new Response("Invalid name", { status: 422 });
@@ -29,6 +29,7 @@ export async function POST(req) {
     const community = await prisma.community.create({
       data: {
         name,
+        description,
         creatorId: user.id,
       },
     });
