@@ -17,8 +17,10 @@ import { useState } from "react"
 import axios from "axios";
 import { AxiosError } from "axios"
 import { toast } from "react-hot-toast";
+import { useRouter } from "next/navigation"
 
 export default function Create({ variant }) {
+  const router = useRouter();
 
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
@@ -40,6 +42,7 @@ export default function Create({ variant }) {
         "Sucessfully created"
       )
       setOpen(false);
+      router.refresh();
       return data;
     }
     catch (err) {
