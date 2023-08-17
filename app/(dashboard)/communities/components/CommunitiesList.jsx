@@ -17,6 +17,7 @@ import {
 } from "app/components/ui/card"
 
 const CommunitiesList = async () => {
+  
   try {
 
 

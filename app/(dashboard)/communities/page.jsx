@@ -1,8 +1,8 @@
 import { DashboardHeader } from "app/components/header";
 import CommunitiesList from "./components/CommunitiesList";
 import Create from "./components/create-community-form";
-
-
+import { Suspense } from 'react'
+import Loader from "./components/communityLoader";
 export const metadata = {
   title: "Communities",
 };
@@ -19,7 +19,9 @@ export default async function Community() {
         <Create></Create>
       </div>
       <div className="mt-4">
-        <CommunitiesList />
+        <Suspense fallback={<Loader />}>
+          <CommunitiesList />
+        </Suspense>
       </div>
     </div>
   );

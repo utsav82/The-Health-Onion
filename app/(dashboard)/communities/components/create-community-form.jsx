@@ -13,11 +13,12 @@ import { Input } from "app/components/ui/input"
 import { Label } from "app/components/ui/label"
 import { Icons } from "app/components/icons"
 import { cn } from "app/libs/utils"
-import { useState } from "react"
+import { useState, useTransition } from "react"
 import axios from "axios";
 import { AxiosError } from "axios"
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation"
+import { ReloadIcon } from "@radix-ui/react-icons"
 
 export default function Create({ variant }) {
   const router = useRouter();
@@ -25,24 +26,34 @@ export default function Create({ variant }) {
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isPending, startTransition] = useTransition()
   const [open, setOpen] = useState(false);
+  const isMutating = isLoading || isPending ;
 
 
 
   const createCommunity = async () => {
-    setIsLoading(true);
-    const payload = {
-      name: name,
-      description: desc
-    }
+    
     try {
+
+      const payload = {
+        name: name,
+        description: desc
+      }
+
+      setIsLoading(true);
+
       const { data } = await axios.post('/api/community', payload)
+
+      setIsLoading(false);
 
       toast.success(
         "Sucessfully created"
       )
       setOpen(false);
-      router.refresh();
+      
+      startTransition(()=>router.refresh())
+      
       return data;
     }
     catch (err) {
@@ -60,7 +71,7 @@ export default function Create({ variant }) {
     }
     finally {
       setName("");
-      setIsLoading(false);
+      
     }
 
   }
@@ -99,11 +110,14 @@ export default function Create({ variant }) {
         </div>
         <DialogFooter>
           <Button
-            isloading={isLoading.toString()}
-            disabled={name.length === 0 || desc.length == 0}
+           
+            disabled={name.length === 0 || desc.length == 0 || isMutating}
             onClick={() => createCommunity()}
           >
-            Submit</Button>
+              {isMutating ? <ReloadIcon className="mr-2 h-4 w-4 animate-spin" /> : "Create"}
+              {isMutating ? "Please wait" : ""}
+
+              </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
