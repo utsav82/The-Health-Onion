@@ -1,4 +1,5 @@
-import { Button } from "app/components/ui/button"
+"use client"
+import { Button, buttonVariants } from "app/components/ui/button"
 import {
   Dialog,
   DialogContent,
@@ -10,38 +11,91 @@ import {
 } from "app/components/ui/dialog"
 import { Input } from "app/components/ui/input"
 import { Label } from "app/components/ui/label"
+import { Icons } from "app/components/icons"
+import { cn } from "app/libs/utils"
+import { useState } from "react"
+import axios from "axios";
+import { AxiosError } from "axios"
+import { toast } from "react-hot-toast";
 
-export default function DialogDemo() {
+export default function Create({ variant }) {
+
+  const [name, setName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+
+
+
+  const createCommunity = async () => {
+    setIsLoading(true);
+    const payload = {
+      name: name,
+    }
+    try {
+      const { data } = await axios.post('/api/community', payload)
+
+      toast.success(
+        "Sucessfully created"
+      )
+      setOpen(false);
+      return data;
+    }
+    catch (err) {
+      if (err instanceof AxiosError) {
+        if (err.response?.status === 409) {
+          toast.error("Community already exists")
+        }
+
+        if (err.response?.status === 422) {
+          toast.error("Invalid subreddit name")
+        }
+      }
+      else
+        toast.error("There was an error")
+    }
+    finally {
+      setName("");
+      setIsLoading(false);
+    }
+
+  }
+
+
   return (
-    <Dialog>
+
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline">Create</Button>
+        <button
+          // onClick={onClick}
+          className={cn(
+            buttonVariants({ variant }),
+          )} >
+          <Icons.add className="mr-2 h-4 w-4" />
+          Create
+        </button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="rounded-md max-w-[300px] sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Create</DialogTitle>
-          <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
-          </DialogDescription>
+          <DialogTitle>Create Community</DialogTitle>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="name" className="text-right">
               Name
             </Label>
-            <Input id="name" value="Pedro Duarte" className="col-span-3" />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input id="username" value="apppeduarte" className="col-span-3" />
+            <Input id="name" value={name} onChange={(e) => setName(e.target.value)} className="col-span-3 bg-gray-700" />
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit">Save changes</Button>
+          <Button
+            isLoading={isLoading}
+            disabled={name.length === 0}
+            onClick={() => createCommunity()}
+          >
+            Submit</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
+
   )
 }

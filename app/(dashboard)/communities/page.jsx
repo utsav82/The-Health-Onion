@@ -1,7 +1,6 @@
 import { DashboardHeader } from "app/components/header";
-import CommunityCreateButton from "./components/community-create-button";
 import CommunitiesList from "./components/CommunitiesList";
-import DialogDemo from "./components/create-community-form";
+import Create from "./components/create-community-form";
 export const metadata = {
   title: "Communities",
 };
@@ -14,8 +13,7 @@ export default async function Community() {
           heading="Communities"
           text="Follow communities that suit you"
         />
-        <CommunityCreateButton />
-        <DialogDemo></DialogDemo>
+        <Create></Create>
       </div>
       <div className="mt-4">
         <CommunitiesList />
