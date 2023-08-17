@@ -55,9 +55,6 @@ export const authOptions = {
     strategy: "jwt",
   },
   secret: process.env.NEXTAUTH_SECRET,
-  pages: {
-    signIn: "/auth",
-  },
   callbacks: {
     async session({ token, session }) {
       if (token) {
@@ -87,9 +84,6 @@ export const authOptions = {
         email: dbUser.email,
         picture: dbUser.image,
       };
-    },
-    redirect() {
-      return "/auth";
     },
   },
 };

@@ -70,7 +70,6 @@ const AuthForm = () => {
           else if (callback?.ok) {
             toast.success("Logged in")
             router.push(searchParams?.get("from") || "/dashboard");
-
           }
 
         })
