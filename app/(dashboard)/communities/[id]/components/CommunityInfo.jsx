@@ -27,7 +27,7 @@ const CommunityInfo = ({ community, user, community_name }) => {
           </div>
           <div className="flex flex-col items-center space-y-1">
             <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+              <AvatarImage src={user.image} alt="@shadcn" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             <p className=" text-black">{user.name}</p>
