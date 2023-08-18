@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import Post from "./components/Post";
 
-const page = () => {
+const page = async () => {
   return (
-    <div>
-      Community page
+    <div className="flex flex-col">
+      <Post></Post>
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

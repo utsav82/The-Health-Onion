@@ -1,17 +1,14 @@
-import { redirect } from "next/navigation"
-import { getCurrentUser } from "app/libs/session"
-import UserAccountNav from "app/components/user-account-nav"
-import MainNav from "app/components/main-nav"
+import { redirect } from "next/navigation";
+import { getCurrentUser } from "app/libs/session";
+import UserAccountNav from "app/components/user-account-nav";
+import MainNav from "app/components/main-nav";
 
-export default async function CommunitiesLayout({
-  children,
-}) {
-  const user = await getCurrentUser()
+export default async function CommunitiesLayout({ children }) {
+  const user = await getCurrentUser();
 
   if (!user) {
-    redirect("/auth")
+    redirect("/auth");
   }
-
 
   return (
     <div className="flex min-h-screen flex-col space-y-6">
@@ -27,11 +24,7 @@ export default async function CommunitiesLayout({
           />
         </div>
       </header>
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
     </div>
-
-
-  )
+  );
 }

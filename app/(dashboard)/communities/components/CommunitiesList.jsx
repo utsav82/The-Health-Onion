@@ -1,5 +1,6 @@
-import prisma from "app/libs/prismadb"
-import { getCurrentUser } from "app/libs/session"
+import prisma from "app/libs/prismadb";
+import Link from "next/link";
+import { getCurrentUser } from "app/libs/session";
 import {
   Tabs,
   TabsContent,
@@ -14,13 +15,10 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "app/components/ui/card"
+} from "app/components/ui/card";
 
 const CommunitiesList = async () => {
-  
   try {
-
-
     const user = await getCurrentUser();
     const communities = await prisma.community.findMany();
     const subscribed = await prisma.user.findUnique({
@@ -31,9 +29,10 @@ const CommunitiesList = async () => {
         },
       },
     });
-    const subscribedCommunities = subscribed.subscriptions.map(subscription => subscription.community)
+    const subscribedCommunities = subscribed.subscriptions.map(
+      (subscription) => subscription.community
+    );
     return (
-
       <Tabs defaultValue="all">
         <TabsList className="grid w-full grid-cols-2 max-w-[350px]">
           <TabsTrigger value="all">All</TabsTrigger>
@@ -42,33 +41,36 @@ const CommunitiesList = async () => {
         <TabsContent value="all">
           <div className="flex gap-5 flex-wrap">
             {communities.map((item) => (
-              <Card className='w-[350px]' key={item.id}>
-                <CardHeader>
-                  <CardTitle>{item.name}</CardTitle>
-                  <CardDescription>{item.description}</CardDescription>
-                </CardHeader>
-              </Card>)
-            )}
+              <Link href={`/communities/${item.name}`}>
+                <Card className="w-[350px]" key={item.id}>
+                  <CardHeader>
+                    <CardTitle>{item.name}</CardTitle>
+                    <CardDescription>{item.description}</CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+            ))}
           </div>
         </TabsContent>
         <TabsContent value="followed" className="flex gap-5 flex-wrap">
           {subscribedCommunities.map((item) => (
-            <Card className='w-[350px]' key={item.id}>
-              <CardHeader>
-                <CardTitle>{item.name}</CardTitle>
-                <CardDescription>{item.description}</CardDescription>
-              </CardHeader>
-            </Card>)
-          )}
+            <Link href={`/communities/${item.name}`}>
+              <Card className="w-[350px]" key={item.id}>
+                <CardHeader>
+                  <CardTitle>{item.name}</CardTitle>
+                  <CardDescription>{item.description}</CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+          ))}
         </TabsContent>
       </Tabs>
-
-
     );
-  }
-  catch (err) {
+  } catch (err) {
     console.error("An error occurred:", err);
-    return <div className="text-black container">Error loading communities.</div>;
+    return (
+      <div className="text-black container">Error loading communities.</div>
+    );
   }
 };
 
