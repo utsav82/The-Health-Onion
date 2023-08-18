@@ -1,8 +1,9 @@
 import { Avatar, AvatarFallback, AvatarImage } from "app/components/ui/avatar";
+import SubscribeLeaveToggle from "./SubscribeLeaveToggle"
 import Link from "next/link";
 import { Button } from "app/components/ui/button";
 
-const CommunityInfo = ({ community, user, community_name }) => {
+const CommunityInfo = ({ community, user, memberCount, isSubscribed }) => {
   return (
     <div className="max-w-sm h-fit bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <img className="rounded-t-lg" src="/images/Basil_leaf.jpg" alt="" />
@@ -16,7 +17,12 @@ const CommunityInfo = ({ community, user, community_name }) => {
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
               {community.description}
             </p>
+
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              {memberCount + " member(s)"}
+            </p>
+
+            <p className="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
               Updated At:{" "}
               {new Date(community.updatedAt).toLocaleDateString("en-US", {
                 day: "numeric",
@@ -27,20 +33,23 @@ const CommunityInfo = ({ community, user, community_name }) => {
           </div>
           <div className="flex flex-col items-center space-y-1">
             <Avatar>
-              <AvatarImage src={user.image} alt="@shadcn" />
+              <AvatarImage src={user?.image} alt="@shadcn" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             <p className=" text-black">{user.name}</p>
           </div>
         </div>
-        <div className="flex justify-between">
-          <Button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Follow
-          </Button>
-          <Button asChild>
+        <div className="flex justify-between mt-3">
+
+        <SubscribeLeaveToggle
+                  isSubscribed={isSubscribed}
+                  communityId={community.id}
+                  communityName={community.name}
+                />
+          <Button asChild className="font-bold bg-secondary">
             <Link
-              href={`/communities/${community_name}/create`}
-              className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              href={`/communities/${community.name}/create`}
+            >
               Create Post
             </Link>
           </Button>

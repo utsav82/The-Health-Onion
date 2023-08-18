@@ -51,6 +51,7 @@ import {
     sun: SunMedium,
     moon: Moon,
     laptop: Laptop,
+    
     gitHub: ({ ...props }) => (
       <svg
         aria-hidden="true"

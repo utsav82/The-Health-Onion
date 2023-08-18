@@ -8,7 +8,7 @@ export default function MainNav() {
   return (
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="items-center space-x-2 flex">
-        <Image src="/images/Onion.png" alt="logo" className='w-20 md:w-20 h-auto' width="100" height="100"/>
+        <Image src="/images/Onion.png" alt="logo" priority className='w-20 md:w-20 h-auto' width="100" height="100"/>
         <span className="font-bold inline-block">
         The Health Onion
         </span>

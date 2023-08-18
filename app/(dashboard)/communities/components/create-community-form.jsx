@@ -71,6 +71,8 @@ export default function Create({ variant }) {
     }
     finally {
       setName("");
+      setDesc("");
+      setIsLoading(false);
       
     }
 

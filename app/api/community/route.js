@@ -11,8 +11,7 @@ export async function POST(req) {
 
     const body = await req.json();
     const { name , description } = body;
-
-    if (name.length < 3 || name.length > 21) {
+    if (name.length < 3 || name.length > 21||name.indexOf(' ') >= 0) {
       return new Response("Invalid name", { status: 422 });
     }
 
