@@ -64,6 +64,7 @@ const Post = () => {
             <Card key={idx}>
               <CardHeader>{item.title}</CardHeader>
               <CardContent>{item.desc}</CardContent>
+              <CardFooter>Followed</CardFooter>
             </Card>
           ))}
         </ul>
