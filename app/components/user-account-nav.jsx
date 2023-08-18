@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { signOut } from "next-auth/react"
+import Link from "next/link";
+import { signOut } from "next-auth/react";
 
 import {
   DropdownMenu,
@@ -9,10 +9,8 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "app/components/ui/dropdown-menu"
-import { UserAvatar } from "./user-avatar"
-
-
+} from "app/components/ui/dropdown-menu";
+import { UserAvatar } from "./user-avatar";
 
 export default function UserAccountNav({ user }) {
   return (
@@ -36,10 +34,14 @@ export default function UserAccountNav({ user }) {
         </div>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          <Link href="/dashboard">Dashboard</Link>
+          <Link href="/dashboard" className="md:hidden">
+            Dashboard
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/communities">Communities</Link>
+          <Link href="/communities" className="md:hidden">
+            Communities
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
           <Link href="/dashboard/posts">My posts</Link>
@@ -51,15 +53,14 @@ export default function UserAccountNav({ user }) {
         <DropdownMenuItem
           className="cursor-pointer"
           onSelect={(event) => {
-            event.preventDefault()
+            event.preventDefault();
             signOut({
               callbackUrl: `${window.location.origin}/auth`,
-            })
-          }}
-        >
+            });
+          }}>
           Sign out
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }
