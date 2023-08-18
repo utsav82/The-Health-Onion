@@ -39,10 +39,10 @@ const CommunitiesList = async () => {
           <TabsTrigger value="followed">Followed</TabsTrigger>
         </TabsList>
         <TabsContent value="all">
-          <div className="flex gap-5 flex-wrap">
+          <div className="flex gap-5 mt-5 flex-wrap">
             {communities.map((item) => (
               <Link href={`/communities/${item.name}`}>
-                <Card className="w-[350px]" key={item.id}>
+                <Card className="w-[300px]" key={item.id}>
                   <CardHeader>
                     <CardTitle>{item.name}</CardTitle>
                     <CardDescription>{item.description}</CardDescription>
@@ -55,7 +55,7 @@ const CommunitiesList = async () => {
         <TabsContent value="followed" className="flex gap-5 flex-wrap">
           {subscribedCommunities.map((item) => (
             <Link href={`/communities/${item.name}`}>
-              <Card className="w-[350px]" key={item.id}>
+              <Card className="w-[300px]" key={item.id}>
                 <CardHeader>
                   <CardTitle>{item.name}</CardTitle>
                   <CardDescription>{item.description}</CardDescription>
