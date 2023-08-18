@@ -11,7 +11,7 @@ const Footer = () => {
             alt="logo"
             height={100}
             width={100}
-            className="w-[100px] md:w-auto"></Image>
+            className="w-[100px] h-auto md:w-auto"></Image>
           <p>Socials</p>
           <div className="flex flex-row">
             <Link

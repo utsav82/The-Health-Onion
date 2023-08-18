@@ -39,20 +39,20 @@ const CommunityInfo = ({ community, user, memberCount, isSubscribed }) => {
             <p className=" text-black">{user.name}</p>
           </div>
         </div>
-        <div className="flex justify-between mt-3">
+        <div className="flex justify-between m-3">
 
-        <SubscribeLeaveToggle
-                  isSubscribed={isSubscribed}
-                  communityId={community.id}
-                  communityName={community.name}
-                />
-          <Button asChild className="font-bold bg-secondary">
+          <SubscribeLeaveToggle
+            isSubscribed={isSubscribed}
+            communityId={community.id}
+            communityName={community.name}
+          />
+          {isSubscribed && <Button asChild className="font-bold bg-secondary flex justify-center">
             <Link
               href={`/communities/${community.name}/create`}
             >
-              Create Post
+              Post
             </Link>
-          </Button>
+          </Button>}
         </div>
       </div>
     </div>

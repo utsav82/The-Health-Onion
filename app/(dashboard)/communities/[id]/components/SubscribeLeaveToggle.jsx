@@ -56,18 +56,18 @@ const SubscribeLeaveToggle = ({
     }
     return isSubscribed ? (
         <Button
-            className='font-bold bg-secondary'
+            className='font-bold bg-secondary mr-5'
             disabled={isMutating}
             onClick={() => subscribe()}>
-            {isMutating ? <ReloadIcon className="mr-2 h-4 w-4 animate-spin" /> : <Icons.check className="mr-2 h-4 w-4" />
+            {isMutating ? <ReloadIcon className="mr-2 h-4 w-4 animate-spin" /> : <Icons.check className="md:mr-2 h-4 w-4" />
             }
-            {isMutating ? "Please wait" : "Leave community"}
+            {isMutating ? "Please wait" : "Unsubscribe"}
 
 
         </Button>
     ) : (
         <Button
-            className='font-bold'
+            className='font-bold '
             disabled={isMutating}
             onClick={() => subscribe()}>
             {isMutating ? <ReloadIcon className="mr-2 h-4 w-4 animate-spin" /> : <Icons.add className="mr-2 h-4 w-4" />

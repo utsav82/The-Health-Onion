@@ -57,15 +57,15 @@ const page = async ({ params, children }) => {
         height="100"
         alt="banner"
         className="object-cover w-screen max-h-48"></Image>
-      <div className="container mt-5 flex flex-col-reverse items-start md:space-x-5 md:flex md:justify-between md:flex-row">
-        <div>{children}</div>
-        <div className="flex items-center justify-center">
+      <div className="container mt-5 flex flex-col-reverse items-start md:justify-between md:space-x-5 md:flex md:flex-row">
+        <div className="grow">{children}</div>
+        <div className="flex items-center justify-center shrink">
           <CommunityInfo
             community={community}
             user={user}
             memberCount={memberCount}
             isSubscribed={isSubscribed}
-          ></CommunityInfo>
+          />
         </div>
       </div>
     </div>
