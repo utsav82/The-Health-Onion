@@ -154,7 +154,11 @@ const CreatePostForm = ({ community_name, communityId }) => {
           Cancel
         </Button>
         <div className="flex gap-3 space-y-4"></div>
-        <Button type="submit" form="myform" size="lg">
+        <Button
+          type="submit"
+          form="myform"
+          size="lg"
+          disabled={isLoading || isimageLoading}>
           Post
         </Button>
       </CardFooter>

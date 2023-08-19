@@ -19,11 +19,15 @@ const Post = async ({ posts }) => {
           {posts.map((item, idx) => (
             <Card key={idx}>
               <CardHeader>
-                <Avatar>
-                  <AvatarImage src={item.authorImage} alt="@shadcn" />
-                  <AvatarFallback>CN</AvatarFallback>
-                </Avatar>
-                <p>{item.authorName}</p>
+                <div className="flex items-center gap-2 text-gray-500">
+                  <p>Posted by</p>
+                  <Avatar className="w-5 h-5">
+                    <AvatarImage src={item.authorImage} alt="@shadcn" />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+                  <p>{item.authorName}</p>
+                </div>
+
                 <CardTitle> {item.title}</CardTitle>
               </CardHeader>
               <CardContent>
