@@ -5,7 +5,7 @@ import { Button } from "app/components/ui/button";
 
 const CommunityInfo = ({ community, user, memberCount, isSubscribed }) => {
   return (
-    <div className="max-w-sm h-fit bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="max-w-md h-fit bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <img className="rounded-t-lg" src="/images/Basil_leaf.jpg" alt="" />
       <div className="p-5">
         <div className="flex justify-between">

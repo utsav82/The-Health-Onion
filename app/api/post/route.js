@@ -11,9 +11,9 @@ export async function POST(req) {
 
     const body = await req.json();
 
-    const { title, content, communityId, imageurl } = (body);
+    const { title, content, communityId, imageurl } = body;
 
-    if (title.length < 3 || title.length > 21) {
+    if (title.length < 3 || title.length > 100) {
       return new Response("Invalid title", { status: 422 });
     }
 
@@ -34,6 +34,8 @@ export async function POST(req) {
         title,
         content,
         authorId: user.id,
+        authorName: user.name,
+        authorImage: user.image || "https://github.com/shadcn.png",
         communityId,
         image: imageurl,
       },

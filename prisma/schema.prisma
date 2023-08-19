@@ -44,7 +44,7 @@ model User {
   createdCommunity Community[]    @relation("CreatedBy")
   subscriptions    Subscription[]
   votes            Vote[]
-  image            String?
+  image            String?        @default("https://github.com/shadcn.png")
   accounts         Account[]
   posts            Post[]
   comments         Comment[]
@@ -82,6 +82,8 @@ model Post {
   updatedAt   DateTime  @updatedAt
   author      User      @relation(fields: [authorId], references: [id])
   authorId    String    @db.ObjectId
+  authorName  String?
+  authorImage String?
   community   Community @relation(fields: [communityId], references: [id])
   communityId String    @db.ObjectId
   comments    Comment[]
