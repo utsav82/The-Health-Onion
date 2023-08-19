@@ -39,7 +39,7 @@ const CommunityInfo = ({ community, user, memberCount, isSubscribed }) => {
             <p className=" text-black">{user.name}</p>
           </div>
         </div>
-        <div className="flex justify-between">
+        <div className="flex justify-between flex-col space-y-3 lg:space-y-0 lg:flex-row">
           <SubscribeLeaveToggle
             isSubscribed={isSubscribed}
             communityId={community.id}
@@ -47,7 +47,7 @@ const CommunityInfo = ({ community, user, memberCount, isSubscribed }) => {
           />
           {isSubscribed && (
             <Button asChild className="font-bold bg-secondary">
-              <Link href={`/communities/${community.name}/create`}>Post</Link>
+              <Link href={`/communities/${community.name}/create`}>Create Post</Link>
             </Button>
           )}
         </div>

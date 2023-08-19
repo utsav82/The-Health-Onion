@@ -3,6 +3,12 @@ import { getCurrentUser } from "app/libs/session";
 import { redirect } from "next/navigation";
 import { toast } from "react-hot-toast";
 import CreatePostForm from "./CreatePostForm"
+// import dynamic from "next/dynamic";
+// import Editor  from "./components/Editor"
+// const Editor = dynamic(
+//   () => import("./components/Editor"),
+//   { ssr: false }
+// );
 const page = async ({ params }) => {
 
   const user = await getCurrentUser();
@@ -21,10 +27,10 @@ const page = async ({ params }) => {
   const isSubscribed = !!subscription
 
   if (!isSubscribed) {
-     redirect(`/communities/${community_name}`)
+    redirect(`/communities/${community_name}`)
   }
 
-  return <CreatePostForm/>;
+  return <>{<CreatePostForm communityId={subscription.communityId} community_name={community_name} /> || "Loading"}</>;
 
 
 };

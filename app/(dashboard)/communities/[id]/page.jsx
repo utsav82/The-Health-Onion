@@ -1,10 +1,27 @@
 import React from "react";
 import Post from "./components/Post";
+import prisma from "app/libs/prismadb";
+const page = async ({ params }) => {
+  
+    const community = await prisma.community.findUnique({
+      where: {
+        name: params.id,
+      },
+    });
 
-const page = async () => {
+    if (!community) {
+      throw new Error('Community not found');
+    }
+
+    const posts = await prisma.post.findMany({
+      where: {
+        communityId: community.id,
+      },
+    });
+  
   return (
     <div className="flex flex-col">
-      <Post></Post>
+      <Post posts={posts}></Post>
     </div>
   );
 };

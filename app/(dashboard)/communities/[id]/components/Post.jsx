@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "app/components/ui/card";
-const Post = () => {
+const Post = ({ posts }) => {
   const jobs = [
     {
       title: "UI - Front End Dev",
@@ -60,10 +60,10 @@ const Post = () => {
     <div>
       <section className="max-w-screen-lg mx-auto  md:px-8">
         <ul className="mt-8 md:mt-auto space-y-6">
-          {jobs.map((item, idx) => (
+          {(posts?posts:jobs).map((item, idx) => (
             <Card key={idx}>
               <CardHeader>{item.title}</CardHeader>
-              <CardContent>{item.desc}</CardContent>
+              <CardContent>{item.content}</CardContent>
               <CardFooter>Followed</CardFooter>
             </Card>
           ))}
