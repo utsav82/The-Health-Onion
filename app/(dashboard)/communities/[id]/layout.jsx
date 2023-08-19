@@ -58,7 +58,7 @@ const page = async ({ params, children }) => {
         alt="banner"
         className="object-cover w-screen max-h-48"></Image>
       <div className="container mt-5 flex flex-col-reverse items-start md:justify-between md:space-x-5 md:flex md:flex-row">
-        <div className="grow">{children}</div>
+        <div className="mt-5 md:mt-0 w-full">{children}</div>
         <div className="flex items-center justify-center shrink">
           <CommunityInfo
             community={community}

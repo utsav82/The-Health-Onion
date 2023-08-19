@@ -38,7 +38,7 @@ const CreatePostForm = () => {
     }
 
     return (
-        <Card className="mt-5 sm:mt-auto">
+        <Card>
             <CardHeader>
                 <CardTitle>Create post</CardTitle>
             </CardHeader>

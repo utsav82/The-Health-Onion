@@ -1,5 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from "app/components/ui/avatar";
-import SubscribeLeaveToggle from "./SubscribeLeaveToggle"
+import SubscribeLeaveToggle from "./SubscribeLeaveToggle";
 import Link from "next/link";
 import { Button } from "app/components/ui/button";
 
@@ -39,20 +39,17 @@ const CommunityInfo = ({ community, user, memberCount, isSubscribed }) => {
             <p className=" text-black">{user.name}</p>
           </div>
         </div>
-        <div className="flex justify-between m-3">
-
+        <div className="flex justify-between">
           <SubscribeLeaveToggle
             isSubscribed={isSubscribed}
             communityId={community.id}
             communityName={community.name}
           />
-          {isSubscribed && <Button asChild className="font-bold bg-secondary flex justify-center">
-            <Link
-              href={`/communities/${community.name}/create`}
-            >
-              Post
-            </Link>
-          </Button>}
+          {isSubscribed && (
+            <Button asChild className="font-bold bg-secondary">
+              <Link href={`/communities/${community.name}/create`}>Post</Link>
+            </Button>
+          )}
         </div>
       </div>
     </div>
