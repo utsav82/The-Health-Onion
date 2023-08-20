@@ -5,14 +5,14 @@ const Footer = () => {
   return (
     <div className="background_1 absolute inset-x-0  md:relative text-card-foreground">
       <div className="flex flex-row gap-10 p-10 items-center justify-around bg-white rounded-t-3xl">
-        <div className="w-60 h-56 bg-[#F5F5F5] rounded-xl p-5 space-y-0 flex flex-col items-center justify-center drop-shadow-md">
+        <div className="w-60 h-56 bg-[#F5F5F5] rounded-xl p-5 flex flex-col items-center justify-center drop-shadow-md">
           <Image
             src="/images/Onion.png"
             alt="logo"
             height={100}
             width={100}
-            className="w-[100px] h-auto md:w-auto"></Image>
-          <p>Socials</p>
+            className="h-32 w-fit"></Image>
+          <p className="mt-[-25px]">Socials</p>
           <div className="flex flex-row">
             <Link
               href="#!"
@@ -71,7 +71,7 @@ const Footer = () => {
               </svg>
             </Link>
           </div>
-          <p className="md:hidden text-sm font-bold">
+          <p className="md:hidden text-sm text-center font-bold">
             ©2022-23 The Health Onion. All rights reserved.
           </p>
         </div>
@@ -80,9 +80,13 @@ const Footer = () => {
         </div>
         <div className="hidden lg:flex flex-wrap w-60 h-56 bg-[#F5F5F5] rounded-xl p-5 space-y-2  items-center justify-center drop-shadow-md">
           <div>
-          <h3>Subscribe to our newsletter</h3>
+            <h3>Subscribe to our newsletter</h3>
             <form className="bg-white flex items-center justify-between px-1 rounded-lg mt-5">
-              <input type="email" placeholder="Enter your Email" className="px-2 py-1 text-sm" />
+              <input
+                type="email"
+                placeholder="Enter your Email"
+                className="px-2 py-1 text-sm"
+              />
               <button className="text-xl font-bold">→</button>
             </form>
           </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Button } from "../ui/button"
+import { Button } from "../ui/button";
 import Link from "next/link";
 const SubHero = () => {
   return (
@@ -32,11 +32,6 @@ const SubHero = () => {
           tools, and engaging forums where you can connect with others who share
           your goals
         </p>
-        <div className="mt-3">
-        <Button asChild>
-            <Link href="/auth">Sign Up</Link>
-          </Button>
-        </div>
       </div>
     </div>
   );
