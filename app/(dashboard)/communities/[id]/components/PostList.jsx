@@ -1,4 +1,4 @@
-import React from "react";
+
 import { getCurrentUser } from "app/libs/session";
 import Post from "./Post"
 const PostList = async ({ posts }) => {

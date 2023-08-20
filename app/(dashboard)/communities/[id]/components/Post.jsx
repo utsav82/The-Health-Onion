@@ -13,7 +13,7 @@ import CommentButton from "./Comment-Button";
 import ShareButton from "./Share-Button";
 import Link from "next/link";
 const Post = ({ item, user }) => {
-    const voted = item.votes.indexOf(user) !== -1 ? true : false;
+    const voted = item.votes.some(vote => vote.userId === user);
     return (
         <Card className="w-full md:w-3/4 lg:w-2/3">
             <Link href={`/communities/Anime/${item.id}`}>
@@ -36,21 +36,20 @@ const Post = ({ item, user }) => {
                 </CardContent>
             </Link>
             <CardFooter className="flex gap-6 items-center w-full">
- 
-                    <CardDescription>
+                <CardDescription>
                     <CommentButton number={item?.comments.length}></CommentButton>
                 </CardDescription>
                 <CardDescription>
                     <LikeButton
                         voted={voted}
-                        postID={item.id}
+                        postId={item.id}
                         number={item?.votes.length}
                     ></LikeButton>
                 </CardDescription>
-                    <CardDescription>
+                <CardDescription>
                     <ShareButton></ShareButton>
                 </CardDescription>
-               
+
             </CardFooter>
         </Card>
 

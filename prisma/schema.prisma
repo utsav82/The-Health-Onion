@@ -113,7 +113,7 @@ model Vote {
   userId String   @db.ObjectId
   post   Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
   postId String   @db.ObjectId
-  type   VoteType
+  type   VoteType?
 }
 
 model CommentVote {
@@ -122,5 +122,5 @@ model CommentVote {
   userId    String   @db.ObjectId
   comment   Comment  @relation(fields: [commentId], references: [id], onDelete: Cascade)
   commentId String   @db.ObjectId
-  type      VoteType
+  type      VoteType?
 }
