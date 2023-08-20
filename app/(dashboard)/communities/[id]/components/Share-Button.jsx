@@ -2,12 +2,12 @@
 import { FaShare } from "react-icons/fa";
 const ShareButton = () => {
   return (
-    <div>
+    <>
       <button className="flex space-x-2 items-center">
-        <FaShare size={25}></FaShare>
-        <p>Share</p>
+      <FaShare size={20} className="mr-2"></FaShare>
+         {"  "}Share
       </button>
-    </div>
+    </>
   );
 };
 

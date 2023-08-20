@@ -36,7 +36,8 @@ const Post = ({ item, user }) => {
                 </CardContent>
             </Link>
             <CardFooter className="flex gap-6 items-center w-full">
-                <CardDescription>
+ 
+                    <CardDescription>
                     <CommentButton number={item?.comments.length}></CommentButton>
                 </CardDescription>
                 <CardDescription>
@@ -46,9 +47,10 @@ const Post = ({ item, user }) => {
                         number={item?.votes.length}
                     ></LikeButton>
                 </CardDescription>
-                <CardDescription>
+                    <CardDescription>
                     <ShareButton></ShareButton>
                 </CardDescription>
+               
             </CardFooter>
         </Card>
 

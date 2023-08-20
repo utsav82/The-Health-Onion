@@ -11,10 +11,10 @@ const LikeButton = async ({ number, postId, voted }) => {
         {isVoted ? (
           <FcLike size={25}></FcLike>
         ) : (
-          <FcLikePlaceholder size={25}></FcLikePlaceholder>
+          <FcLikePlaceholder size={25} className="mr-2"></FcLikePlaceholder>
         )}
 
-        <p>{number} likes</p>
+      {number} likes
       </button>
     </div>
   );
