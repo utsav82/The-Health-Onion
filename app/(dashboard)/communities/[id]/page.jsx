@@ -1,5 +1,5 @@
 import React from "react";
-import Post from "./components/Post";
+import PostList from "./components/PostList";
 import prisma from "app/libs/prismadb";
 const page = async ({ params }) => {
   const community = await prisma.community.findUnique({
@@ -27,7 +27,7 @@ const page = async ({ params }) => {
 
   return (
     <div className="flex flex-col">
-      <Post posts={posts}></Post>
+      <PostList posts={posts}></PostList>
     </div>
   );
 };

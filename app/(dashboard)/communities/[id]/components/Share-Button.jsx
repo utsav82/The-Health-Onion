@@ -1,4 +1,4 @@
-import React from "react";
+"use client"
 import { FaShare } from "react-icons/fa";
 const ShareButton = () => {
   return (
