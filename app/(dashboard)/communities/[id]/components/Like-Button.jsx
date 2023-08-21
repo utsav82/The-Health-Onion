@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useTransition } from "react";
 import { toast } from "react-hot-toast";
 import axios from "axios";
-import { useRouter } from "next/navigation"
+import { useRouter } from "next/navigation";
 import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 const LikeButton = ({ number, postId, voted }) => {
   const router = useRouter();
@@ -14,14 +14,13 @@ const LikeButton = ({ number, postId, voted }) => {
   const handleClick = async () => {
     try {
       const payload = {
-        postId: postId
+        postId: postId,
       };
       console.log(payload);
       setIsLoading(true);
       if (isVoted) {
         setVotes(votes - 1);
-      }
-      else {
+      } else {
         setVotes(votes + 1);
       }
       setisVoted(!isVoted);
@@ -32,26 +31,28 @@ const LikeButton = ({ number, postId, voted }) => {
 
       return data;
     } catch (err) {
-      console.log(err)
+      console.log(err);
       toast.error("There was an error");
     } finally {
       setIsLoading(false);
     }
   };
   useEffect(() => {
-    setVotes(number)
-    setisVoted(voted)
-  }, [])
+    setVotes(number);
+    setisVoted(voted);
+  }, []);
   return (
-    < >
-      <button disabled={isMutating} className="flex space-x-2 items-center" onClick={handleClick}>
+    <>
+      <button
+        disabled={isMutating}
+        className="flex space-x-2 items-center"
+        onClick={handleClick}>
         {isVoted ? (
-          <FcLike size={25}  className="mr-3" ></FcLike>
+          <FcLike size={25} className="mr-3"></FcLike>
         ) : (
           <FcLikePlaceholder size={25} className="mr-3"></FcLikePlaceholder>
         )}
-
-        {votes} likes
+        {votes} <span className="hidden md:block">likes</span>
       </button>
     </>
   );

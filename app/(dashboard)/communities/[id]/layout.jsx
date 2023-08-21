@@ -32,12 +32,11 @@ const page = async ({ params, children }) => {
         id: suser.id,
       },
     },
-  })
+  });
 
-  const isSubscribed = !!subscription
+  const isSubscribed = !!subscription;
 
-
-  if (!community) return notFound()
+  if (!community) return notFound();
 
   const memberCount = await prisma.subscription.count({
     where: {
@@ -45,8 +44,7 @@ const page = async ({ params, children }) => {
         name: community_name,
       },
     },
-  })
-
+  });
 
   return (
     <div className="flex flex-col mt-[-25px]">
@@ -57,7 +55,7 @@ const page = async ({ params, children }) => {
         height="100"
         alt="banner"
         className="object-cover w-screen max-h-48"></Image>
-      <div className="container  mt-5 flex flex-col-reverse md:flex md:flex-row">
+      <div className="container w-screen items-center md:items-start mt-5 md:gap-10 flex flex-col-reverse md:flex md:flex-row">
         <div className="mt-5 md:mt-0 w-full">{children}</div>
         <div className="md:top-20 md:h-full md:sticky">
           <CommunityInfo
