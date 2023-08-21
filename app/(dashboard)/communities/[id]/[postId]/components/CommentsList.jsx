@@ -1,6 +1,7 @@
 import React from "react";
 import CommentForm from "./CommentForm"
 import Comment from "./Comment"
+import prisma from "app/libs/prismadb";
 const Comments = async ({ user, postId }) => {
 
   const comments = await prisma.comment.findMany({
