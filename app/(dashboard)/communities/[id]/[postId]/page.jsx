@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "app/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "app/components/ui/avatar";
-import Comments from "./components/Comments";
+import CommentsList from "./components/CommentsList";
 import LikeButton from "../components/Like-Button";
 import CommentButton from "../components/Comment-Button";
 import ShareButton from "../components/Share-Button";
@@ -67,7 +67,7 @@ const PostPage = async ({ params }) => {
             <ShareButton></ShareButton>
           </CardDescription>
         </div>
-        <Comments user={user} postId={postId}></Comments>
+        <CommentsList user={user} postId={postId}></CommentsList>
       </CardFooter>
     </Card>
   );

@@ -1,15 +1,30 @@
 'use client'
 import { handleComment } from 'app/actions/actions'
-import { useRef } from 'react'
+import { useRef, useTransition, useEffect } from 'react'
+import { toast } from "react-hot-toast";
+import { ReloadIcon } from "@radix-ui/react-icons";
+import { Button } from "app/components/ui/button"
 const CommentForm = ({ postId, user, replyToId }) => {
+
     const formRef = useRef();
-    return (
-        <form className="mb-6" action={async (formData) => {
-            const comment = formData.get('comment')
-            formRef.current.reset()
+    let [isPending, startTransition] = useTransition();
+
+    const onSubmit = async (formData) => {
+        const comment = formData.get('comment')
+        formRef.current.reset()
+
+
+        startTransition(async () => {
             await handleComment(comment, postId, user, replyToId);
-        }}
-            ref={formRef} >
+            toast.success("Commented");
+        });
+    }
+
+
+
+
+    return (
+        <form className="mb-6" action={onSubmit} ref={formRef} >
             <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
                 <label htmlFor="comment" className="sr-only">
                     Your comment
@@ -22,7 +37,7 @@ const CommentForm = ({ postId, user, replyToId }) => {
                     placeholder="Write a comment..."
                     required></textarea>
             </div>
-            <button type="submit">Post comment</button>
+            <Button type="submit" disabled={isPending}>{isPending ? <ReloadIcon className="mr-2 h-4 w-4 animate-spin" /> : "Comment"}</Button>
         </form>
     )
 }
