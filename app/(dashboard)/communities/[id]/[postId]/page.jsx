@@ -31,11 +31,11 @@ const PostPage = async ({ params }) => {
       },
     },
   });
-  
+
   const voted = post.votes.some((vote) => vote.userId === user.id);
 
   return (
-    <Card>
+    <Card className="container w-full">
       <CardHeader>
         <div className="flex items-center gap-2 text-gray-500">
           <p>Posted by</p>
@@ -50,11 +50,12 @@ const PostPage = async ({ params }) => {
 
         <CardTitle> {post.title}</CardTitle>
       </CardHeader>
-      <CardContent className="flex items-center justify-center">
+      <CardContent className="flex flex-col justify-center">
         <img src={post.image} alt="" />
+        <p className="mt-5">{post.content}</p>
       </CardContent>
 
-      <CardFooter className="flex flex-col">
+      <CardFooter className="flex flex-col w-full">
         <div className="flex gap-6 items-center w-full">
           <CardDescription>
             <CommentButton number={post?.comments.length}></CommentButton>
@@ -69,7 +70,9 @@ const PostPage = async ({ params }) => {
             <ShareButton></ShareButton>
           </CardDescription>
         </div>
-        <CommentsList user={user} postId={postId}></CommentsList>
+        <div className="w-full">
+          <CommentsList user={user} postId={postId}></CommentsList>
+        </div>
       </CardFooter>
     </Card>
   );
