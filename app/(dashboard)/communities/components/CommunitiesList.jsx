@@ -1,5 +1,6 @@
 import prisma from "app/libs/prismadb";
 import Link from "next/link";
+export const revalidate = 30;
 import { getCurrentUser } from "app/libs/session";
 import {
   Tabs,

@@ -84,7 +84,7 @@ const CreatePostForm = ({ community_name, communityId }) => {
             <div className="flex flex-col space-y-1.5">
               <TextareaAutosize
                 id="title"
-                disabled={isLoading}
+                disabled={isMutating}
                 {...register("title", { required: true })}
                 errors={errors}
                 type="text"
@@ -95,7 +95,7 @@ const CreatePostForm = ({ community_name, communityId }) => {
             <div className="flex flex-col w-full  space-y-1.5">
               <TextareaAutosize
                 id="content"
-                disabled={isLoading}
+                disabled={isMutating}
                 {...register("content", { required: true })}
                 errors={errors}
                 placeholder="Description"
@@ -158,7 +158,7 @@ const CreatePostForm = ({ community_name, communityId }) => {
           type="submit"
           form="myform"
           size="lg"
-          disabled={isLoading || isimageLoading}>
+          disabled={isMutating || isimageLoading}>
           Post
         </Button>
       </CardFooter>

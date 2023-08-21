@@ -9,7 +9,7 @@ export default async function CommunitiesLayout({
   return (
 
     <div className="container flex">
-      <aside className="hidden w-[200px] flex-col md:flex sticky top-0">
+      <aside className="hidden w-[200px] flex-col md:flex sticky top-24 h-min">
         <DashboardNav items={[
           {
             title: "Home feed",
