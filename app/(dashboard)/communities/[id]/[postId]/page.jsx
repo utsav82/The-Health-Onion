@@ -23,6 +23,7 @@ const PostPage = async ({ params }) => {
     },
     include: {
       votes: true,
+      author: true,
       comments: {
         include: {
           author: true,
@@ -39,12 +40,12 @@ const PostPage = async ({ params }) => {
         <div className="flex items-center gap-2 text-gray-500">
           <p>Posted by</p>
           <Avatar className="w-5 h-5">
-            <AvatarImage src={post.authorImage} alt="@shadcn" />
+            <AvatarImage src={post.author.image} alt="@shadcn" />
             <AvatarFallback>
-              <AvatarImage src={post.authorImage} alt="@shadcn" />
+              <AvatarImage src={post.author.image} alt="@shadcn" />
             </AvatarFallback>
           </Avatar>
-          <p>{post.authorName}</p>
+          <p>{post.author.name}</p>
         </div>
 
         <CardTitle> {post.title}</CardTitle>

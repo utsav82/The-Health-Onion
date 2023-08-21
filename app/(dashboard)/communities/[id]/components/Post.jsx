@@ -21,12 +21,12 @@ const Post = ({ item, user }) => {
                     <div className="flex items-center gap-2 text-gray-500">
                         <p>Posted by</p>
                         <Avatar className="w-5 h-5">
-                            <AvatarImage src={item.authorImage} alt="@shadcn" />
+                            <AvatarImage src={item.author.image} alt="@shadcn" />
                             <AvatarFallback>
-                                <AvatarImage src={item.authorImage} alt="@shadcn" />
+                                <AvatarImage src={item.author.name} alt="@shadcn" />
                             </AvatarFallback>
                         </Avatar>
-                        <p>{item.authorName}</p>
+                        <p>{item.author.name}</p>
                     </div>
 
                     <CardTitle> {item.title}</CardTitle>

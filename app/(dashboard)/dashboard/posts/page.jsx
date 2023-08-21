@@ -18,6 +18,7 @@ export default async function PostsPage() {
     include: {
       votes: true,
       comments: true,
+      author: true,
     },
     orderBy: {
       createdAt: "desc",

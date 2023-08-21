@@ -19,6 +19,7 @@ const page = async ({ params }) => {
     include: {
       votes: true,
       comments: true,
+      author: true,
     },
     orderBy: {
       createdAt: "desc",
