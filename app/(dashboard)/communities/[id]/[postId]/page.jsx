@@ -30,6 +30,7 @@ const PostPage = async ({ params }) => {
       },
     },
   });
+  
   const voted = post.votes.some((vote) => vote.userId === user.id);
 
   return (
