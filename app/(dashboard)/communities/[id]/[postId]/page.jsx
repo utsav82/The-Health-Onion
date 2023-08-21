@@ -1,5 +1,4 @@
 import prisma from "app/libs/prismadb";
-import React from "react";
 import {
   Card,
   CardContent,
@@ -31,7 +30,8 @@ const PostPage = async ({ params }) => {
       },
     },
   });
-  const voted = post.votes.some((vote) => vote.userId === user);
+  const voted = post.votes.some((vote) => vote.userId === user.id);
+
   return (
     <Card>
       <CardHeader>
@@ -67,7 +67,7 @@ const PostPage = async ({ params }) => {
             <ShareButton></ShareButton>
           </CardDescription>
         </div>
-        <Comments></Comments>
+        <Comments user={user} postId={postId}></Comments>
       </CardFooter>
     </Card>
   );
