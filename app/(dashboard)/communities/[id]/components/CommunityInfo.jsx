@@ -1,9 +1,31 @@
 import { Avatar, AvatarFallback, AvatarImage } from "app/components/ui/avatar";
+import { notFound } from "next/navigation";
+import prisma from "app/libs/prismadb";
+import { getCurrentUser } from "app/libs/session";
 import SubscribeLeaveToggle from "./SubscribeLeaveToggle";
 import Link from "next/link";
 import { Button } from "app/components/ui/button";
 
-const CommunityInfo = ({ community, user, memberCount, isSubscribed }) => {
+const CommunityInfo = async ({ params }) => {
+  const user = await getCurrentUser();
+  const community_name = params.id;
+  const community = await prisma.community.findFirst({
+    where: { name: community_name },
+    include: {
+      creator: true,
+      subscribers: true,
+      posts: {
+        include: {
+          author: true,
+          votes: true,
+        },
+      },
+    },
+  });
+
+  if (!community) return notFound();
+  const isSubscribed = community.subscribers.some(item => item.userId === user.id);
+
   return (
     <div className="max-w-md h-fit bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <img className="rounded-t-lg" src="/images/Basil_leaf.jpg" alt="" />
@@ -19,7 +41,7 @@ const CommunityInfo = ({ community, user, memberCount, isSubscribed }) => {
             </p>
 
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              {memberCount + " member(s)"}
+              {community.subscribers.length + " member(s)"}
             </p>
 
             <p className="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
@@ -33,10 +55,10 @@ const CommunityInfo = ({ community, user, memberCount, isSubscribed }) => {
           </div>
           <div className="flex flex-col items-center space-y-1">
             <Avatar>
-              <AvatarImage src={user?.image} alt="@shadcn" />
+              <AvatarImage src={community.creator?.image} alt="@shadcn" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
-            <p className=" text-black">{user.name}</p>
+            <p className=" text-black">{community.creator?.name}</p>
           </div>
         </div>
         <div className="flex justify-between flex-col space-y-3 lg:space-y-0 lg:flex-row">

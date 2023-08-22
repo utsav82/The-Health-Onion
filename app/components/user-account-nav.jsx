@@ -11,15 +11,16 @@ import {
   DropdownMenuTrigger,
 } from "app/components/ui/dropdown-menu";
 import { UserAvatar } from "./user-avatar";
-
+import {GiHamburgerMenu} from "react-icons/gi"
 export default function UserAccountNav({ user }) {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger className="flex items-center">
         <UserAvatar
           user={{ name: user?.name || null, image: user?.image || null }}
-          className="h-8 w-8"
+          className="h-8 w-8 mr-3 md:mr-auto"
         />
+        <GiHamburgerMenu  className="h-5 w-5 md:hidden" ></GiHamburgerMenu>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <div className="flex items-center justify-start gap-2 p-2">
@@ -44,7 +45,7 @@ export default function UserAccountNav({ user }) {
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/dashboard/posts">My posts</Link>
+          <Link href="/dashboard/posts">My Posts</Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
           <Link href="/dashboard/settings">Settings</Link>

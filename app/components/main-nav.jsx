@@ -5,7 +5,6 @@ import { Kreon } from "next/font/google";
 import UserAccountNav from "app/components/user-account-nav";
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "app/libs/session";
-import LogOutBtn from "./log-out-btn";
 
 const kreon = Kreon({
   subsets: ["latin"],
@@ -36,7 +35,7 @@ export default async function MainNav() {
         </Link>
       </div>
       <div className="flex items-center justify-center gap-3">
-        <nav className="hidden gap-6 sm:flex">
+        <nav className="hidden gap-6 sm:flex mr-5">
           <Link
             href={"/dashboard"}
             className="flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm">
