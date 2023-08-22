@@ -1,12 +1,13 @@
 "use client";
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import CommentForm from "./CommentForm";
 import Reply from "./Reply";
+import { deleteComment } from "app/actions/actions"
 import { formatTimeToNow } from "app/libs/utils";
 const Comment = ({ comment, user, key }) => {
   const [replyForm, setReplyForm] = useState(false);
   const [settings, setSettings] = useState(false);
-
+  const [isPending, startTransition] = useTransition();
   return (
     <>
       <article className="p-2 text-base relative bg-white rounded-lg dark:bg-gray-900">
@@ -57,11 +58,13 @@ const Comment = ({ comment, user, key }) => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                    Remove
-                  </a>
+                  {comment.authorId === user.id && <button
+                    onClick={() => startTransition(async () => {
+                      await deleteComment(comment.postId, comment.id, comment.replies);
+                    })}
+                    className="block py-2 px-4 w-full text-left hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                    {isPending ? "loading" : "Remove"}
+                  </button>}
                 </li>
                 <li>
                   <a
@@ -104,7 +107,7 @@ const Comment = ({ comment, user, key }) => {
         </div>
       </article>
       {comment.replies.map((reply, idx) => (
-        <Reply key={idx} reply={reply}></Reply>
+        <Reply key={idx} reply={reply} user={user}></Reply>
       ))}
       <hr />
     </>

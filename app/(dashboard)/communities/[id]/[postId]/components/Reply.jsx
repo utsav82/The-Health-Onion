@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { formatTimeToNow } from "app/libs/utils";
-
-const Reply = ({ reply }) => {
+import { deleteComment } from "app/actions/actions"
+const Reply = ({ reply, user }) => {
   const [rsettings, rsetSettings] = useState(false);
+  const [isPending, startTransition] = useTransition();
   return (
     <article className="relative child-comment p-6 ml-6 lg:ml-12 text-base bg-white rounded-lg dark:bg-gray-900">
       <footer className="flex justify-between items-center mb-2">
@@ -53,11 +54,13 @@ const Reply = ({ reply }) => {
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                  Remove
-                </a>
+                {reply.authorId === user.id && <button
+                  onClick={() => startTransition(async () => {
+                    await deleteComment(reply.postId, reply.id, null);
+                  })}
+                  className="block w-full text-left py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                  {isPending ? "Loading" : "Remove"}
+                </button>}
               </li>
               <li>
                 <a
