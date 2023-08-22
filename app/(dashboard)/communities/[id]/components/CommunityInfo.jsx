@@ -27,8 +27,8 @@ const CommunityInfo = async ({ params }) => {
   const isSubscribed = community.subscribers.some(item => item.userId === user.id);
 
   return (
-    <div className="max-w-md h-fit bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <img className="rounded-t-lg" src="/images/Basil_leaf.jpg" alt="" />
+    <div className=" w-screen md:w-full max-w-md h-fit bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <img className="rounded-t-lg hidden md:block" src="/images/Basil_leaf.jpg" alt="" />
       <div className="p-5">
         <div className="flex justify-between">
           <div>

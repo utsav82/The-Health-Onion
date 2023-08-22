@@ -37,7 +37,7 @@ const PostPage = async ({ params }) => {
   const voted = post.votes.some((vote) => vote.userId === user.id);
 
   return (
-    <Card className="container w-full">
+    <Card className="md:container md:w-full" id="post">
       <CardHeader>
         <div className="flex items-center gap-2 text-gray-500">
           <p>Posted by</p>

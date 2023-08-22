@@ -17,7 +17,7 @@ const Post = ({ item, user }) => {
 
     return (
         <Card className="w-full md:w-3/4 lg:w-2/3">
-            <Link href={`/communities/${item.community.name}/${item.id}`}>
+            <Link href={`/communities/${item.community.name}/${item.id}#post`}>
                 <CardHeader>
                     <div className="flex items-center gap-2 text-gray-500">
                         <p>Posted by</p>
