@@ -14,7 +14,7 @@ const page = async ({ params, children }) => {
         alt="banner"
         className="object-cover w-screen max-h-48 z-10"></Image>
       <div className="container w-screen items-center md:items-start md:mt-5 md:gap-10 flex flex-col-reverse md:flex md:flex-row">
-        <div className="md:mt-5 md:mt-0 w-screen md:w-full">{children}</div>
+        <div className="md:mt-0 w-screen md:w-full">{children}</div>
         <div className="md:top-20 md:h-full md:sticky">
           <CommunityInfo params={params} />
         </div>
