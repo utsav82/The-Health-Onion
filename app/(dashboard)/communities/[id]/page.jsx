@@ -26,6 +26,7 @@ async function getData(params) {
             votes: true,
             comments: true,
             author: true,
+            community: true,
           },
           orderBy: {
             createdAt: "desc",

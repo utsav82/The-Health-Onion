@@ -11,12 +11,14 @@ import { Avatar, AvatarFallback, AvatarImage } from "app/components/ui/avatar";
 import CommentsList from "./components/CommentsList";
 import LikeButton from "../components/Like-Button";
 import CommentButton from "../components/Comment-Button";
+import DeleteButton from "../components/Delete-Button";
 import ShareButton from "../components/Share-Button";
 import { getCurrentUser } from "app/libs/session";
 
 const PostPage = async ({ params }) => {
   const user = await getCurrentUser();
   const postId = params.postId;
+
   const post = await prisma.post.findUnique({
     where: {
       id: postId,
@@ -69,9 +71,12 @@ const PostPage = async ({ params }) => {
           <CardDescription>
             <ShareButton></ShareButton>
           </CardDescription>
+          <CardDescription>
+            {(post.authorId === user.id) && <DeleteButton postId={postId} communityName={params.id}></DeleteButton>}
+          </CardDescription>
         </div>
-        <div className="w-full">
-          <CommentsList user={user} postId={postId}></CommentsList>
+        <div className="w-full" id="comment">
+          <CommentsList  user={user} postId={postId}></CommentsList>
         </div>
       </CardFooter>
     </Card>
