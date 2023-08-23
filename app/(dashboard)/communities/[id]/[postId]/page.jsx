@@ -14,7 +14,7 @@ import CommentButton from "../components/Comment-Button";
 import DeleteButton from "../components/Delete-Button";
 import ShareButton from "../components/Share-Button";
 import { getCurrentUser } from "app/libs/session";
-
+import { formatTimeToNow } from "app/libs/utils";
 const PostPage = async ({ params }) => {
   const user = await getCurrentUser();
   const postId = params.postId;
@@ -48,6 +48,8 @@ const PostPage = async ({ params }) => {
             </AvatarFallback>
           </Avatar>
           <p>{post.author.name}</p>
+          <p> {formatTimeToNow(new Date(post.createdAt))}</p>
+
         </div>
 
         <CardTitle> {post.title}</CardTitle>
@@ -76,7 +78,7 @@ const PostPage = async ({ params }) => {
           </CardDescription>
         </div>
         <div className="w-full" id="comment">
-          <CommentsList  user={user} postId={postId}></CommentsList>
+          <CommentsList user={user} postId={postId}></CommentsList>
         </div>
       </CardFooter>
     </Card>

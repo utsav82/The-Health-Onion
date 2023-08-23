@@ -16,7 +16,7 @@ import {
   CardHeader,
   CardTitle,
 } from "app/components/ui/card";
-
+import { deleteCommunity } from "app/actions/actions"
 const CommunitiesList = async () => {
   try {
     const user = await getCurrentUser();
@@ -41,14 +41,19 @@ const CommunitiesList = async () => {
         <TabsContent value="all">
           <div className="flex gap-5 mt-5 flex-wrap">
             {communities.map((item, idx) => (
-              <Link key={idx} href={`/communities/${item.name}`}>
-                <Card className="w-[300px]" key={item.id}>
+              <Card className="w-[300px]" key={item.id}>
+                <Link href={`/communities/${item.name}`}>
                   <CardHeader>
                     <CardTitle>{item.name}</CardTitle>
                     <CardDescription>{item.description}</CardDescription>
                   </CardHeader>
-                </Card>
-              </Link>
+                </Link>
+                {/* <form>
+                  <button formAction={deleteCommunity(item.name)}>delete</button>
+                </form> */}
+              </Card>
+
+
             ))}
           </div>
         </TabsContent>

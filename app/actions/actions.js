@@ -45,7 +45,7 @@ export async function deletePost(postId, communityName) {
     });
   } catch (err) {
     console.error("Error while deleting", err);
-    throw new Error("Unable to deleting post");
+    throw new Error("Unable to delete post");
   }
 
   redirect(`/communities/${communityName}`);
@@ -71,8 +71,23 @@ export async function deleteComment(postId, commentId, replies) {
     }
   } catch (err) {
     console.error("Error while deleting", err);
-    throw new Error("Unable to deleting comment");
+    throw new Error("Unable to delete comment");
   }
 
   revalidateTag(postId);
+}
+
+export async function deleteCommunity(communityName) {
+  try {
+    await prisma.community.delete({
+      where: {
+        name: communityName,
+      },
+    });
+  } catch (err) {
+    console.error("Error while deleting", err);
+    throw new Error("Unable to delete community");
+  }
+
+  redirect(`/communities`);
 }

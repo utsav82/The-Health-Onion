@@ -12,7 +12,7 @@ import LikeButton from "./Like-Button";
 import CommentButton from "./Comment-Button";
 import ShareButton from "./Share-Button";
 import Link from "next/link";
-import Image from 'next/image';
+import { formatTimeToNow } from "app/libs/utils";
 const Post = ({ item, user }) => {
     const voted = item.votes.some(vote => vote.userId === user);
 
@@ -20,7 +20,7 @@ const Post = ({ item, user }) => {
         <Card className="md:container w-full">
             <Link href={`/communities/${item.community.name}/${item.id}#post`}>
                 <CardHeader>
-                    <div className="flex items-center gap-2 text-gray-500">
+                    <div className="flex items-center gap-2 text-gray-500 relative">
                         <p>Posted by</p>
                         <Avatar className="w-5 h-5">
                             <AvatarImage src={item.author.image} alt="@shadcn" />
@@ -29,6 +29,8 @@ const Post = ({ item, user }) => {
                             </AvatarFallback>
                         </Avatar>
                         <p>{item.author.name}</p>
+                        <p> {formatTimeToNow(new Date(item.createdAt))}</p>
+                        <p className='right-0 absolute'>{item.community.name} community</p>
                     </div>
 
                     <CardTitle> {item.title}</CardTitle>
