@@ -12,11 +12,12 @@ import LikeButton from "./Like-Button";
 import CommentButton from "./Comment-Button";
 import ShareButton from "./Share-Button";
 import Link from "next/link";
+import Image from 'next/image';
 const Post = ({ item, user }) => {
     const voted = item.votes.some(vote => vote.userId === user);
 
     return (
-        <Card className="w-full md:w-3/4 lg:w-2/3">
+        <Card className="md:container w-full">
             <Link href={`/communities/${item.community.name}/${item.id}#post`}>
                 <CardHeader>
                     <div className="flex items-center gap-2 text-gray-500">
@@ -33,7 +34,7 @@ const Post = ({ item, user }) => {
                     <CardTitle> {item.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex items-center justify-center">
-                    <img src={item.image} alt="" />
+                    <img src={item.image} alt="post" />
                 </CardContent>
             </Link>
             <CardFooter className="flex gap-6 items-center w-full">

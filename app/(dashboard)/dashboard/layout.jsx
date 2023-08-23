@@ -28,7 +28,7 @@ export default async function CommunitiesLayout({
           },
         ]} />
       </aside>
-      <main className="flex w-full flex-1 flex-col overflow-hidden text-black ml-8">
+      <main className="flex w-full flex-1 flex-col overflow-hidden text-black ml-8 ">
         {children}
       </main>
     </div>

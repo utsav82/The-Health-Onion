@@ -53,7 +53,7 @@ const PostPage = async ({ params }) => {
         <CardTitle> {post.title}</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col justify-center">
-        <img src={post.image} alt="" />
+        <img src={post.image} alt="post" />
         <p className="mt-5">{post.content}</p>
       </CardContent>
 

@@ -40,8 +40,8 @@ const CommunitiesList = async () => {
         </TabsList>
         <TabsContent value="all">
           <div className="flex gap-5 mt-5 flex-wrap">
-            {communities.map((item) => (
-              <Link href={`/communities/${item.name}`}>
+            {communities.map((item, idx) => (
+              <Link key={idx} href={`/communities/${item.name}`}>
                 <Card className="w-[300px]" key={item.id}>
                   <CardHeader>
                     <CardTitle>{item.name}</CardTitle>

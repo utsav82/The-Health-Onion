@@ -42,7 +42,8 @@ const SubscribeLeaveToggle = ({ isSubscribed, communityId, communityName }) => {
   };
   return isSubscribed ? (
     <Button
-      className="font-bold bg-secondary"
+      className="font-bold"
+      variant={"secondary"}
       disabled={isMutating}
       onClick={() => subscribe()}>
       {isMutating ? (

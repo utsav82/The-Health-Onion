@@ -61,7 +61,7 @@ const userForm = ({ user }) => {
                         <Input
                             id="name"
                             name="name"
-                            className="w-[300px]"
+                            className="w-[200px]"
                             size={32}
                             disabled={isPending}
                             placeholder={user.name}
@@ -77,7 +77,7 @@ const userForm = ({ user }) => {
                         </Label>
                         <Input
                             id="email"
-                            className="w-[300px]"
+                            className="w-[200px]"
                             size={32}
                             disabled={true}
                             value={user.email}

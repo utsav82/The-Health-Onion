@@ -8,9 +8,9 @@ const page = async ({ params }) => {
   const isCommunity = !!communityWithPosts;
   if (!isCommunity) return notFound();
   return (
-    <div className="flex flex-col">
+   
       <PostList posts={communityWithPosts.posts} />
-    </div>
+  
   );
 
 };
