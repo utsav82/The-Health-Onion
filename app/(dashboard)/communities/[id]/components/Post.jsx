@@ -30,7 +30,7 @@ const Post = ({ item, user }) => {
                         </Avatar>
                         <p>{item.author.name}</p>
                         <p> {formatTimeToNow(new Date(item.createdAt))}</p>
-                        <p className='right-0 absolute'>{item.community.name} community</p>
+                        <p className='right-0 absolute hidden md:block'>{item.community.name} community</p>
                     </div>
 
                     <CardTitle> {item.title}</CardTitle>
