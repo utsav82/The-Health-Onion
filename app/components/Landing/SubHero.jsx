@@ -28,9 +28,8 @@ const SubHero = () => {
         </h1>
         <p className="mt-2.5 text-base md:text-md font-base text-[azure]">
           Ready to join our community and start your health journey? Sign up
-          today and gain access to expert resources, personalized tracking
-          tools, and engaging forums where you can connect with others who share
-          your goals
+          today and join communities that suit you,
+          create posts and share your health journery with others
         </p>
       </div>
     </div>
