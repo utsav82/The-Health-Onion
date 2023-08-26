@@ -36,7 +36,7 @@ export default async function IndexPage() {
             </span>
           </h1>
           <p
-            className={`max-w-[42rem] ${chivo.className} leading-normal text-muted-foreground sm:text-xl sm:leading-8`}>
+            className={`max-w-[42rem] ${chivo.className} text-[#A8AAA8] leading-normal text-muted-foreground sm:text-xl sm:leading-8`}>
             Empowering Your Journey to Better Health Through Knowledge Sharing
             and Supportive Connections
           </p>
