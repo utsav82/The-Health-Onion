@@ -1,39 +1,57 @@
+import { DashboardNav } from "../../components/nav";
+import Image from "next/image";
+import Quote from "inspirational-quotes";
+import { Kreon } from "next/font/google";
 
-import { DashboardNav } from "../../components/nav"
-export default async function CommunitiesLayout({
-  children,
-}) {
+const kreon = Kreon({
+  subsets: ["latin"],
+  weight: "variable",
+  variable: "--font-kreon",
+});
 
-
-
+export default async function CommunitiesLayout({ children }) {
+  const qoute = Quote.getRandomQuote();
+  console.log(qoute);
   return (
-
-    <div className="md:container w-full pr-6 md:pr-auto flex">
-      <aside className="hidden w-[200px] flex-col md:flex sticky top-24 h-min">
-        <DashboardNav items={[
-          {
-            title: "Home feed",
-            href: "/dashboard",
-            icon: "laptop",
-          },
-          {
-            title: "Posts",
-            href: "/dashboard/posts",
-            icon: "post",
-          },
-          {
-            title: "Settings",
-            href: "/dashboard/settings",
-            icon: "settings",
-          },
-        ]} />
+    <div className="flex ">
+      <aside className="hidden min-w-[250px] md:flex-col md:flex md:top-24 md:h-min md:sticky  p-5">
+        <DashboardNav
+          items={[
+            {
+              title: "Home feed",
+              href: "/dashboard",
+              icon: "laptop",
+            },
+            {
+              title: "Posts",
+              href: "/dashboard/posts",
+              icon: "post",
+            },
+            {
+              title: "Settings",
+              href: "/dashboard/settings",
+              icon: "settings",
+            },
+          ]}
+        />
       </aside>
-      <main className="flex w-full flex-1 flex-col overflow-hidden text-black ml-8 ">
-        {children}
-      </main>
+      <div className="flex flex-col w-min">
+        <div className=" flex items-center justify-center lg:justify-between h-64  bg-[linear-gradient(90deg,#315D50_0%,#599068_52.60%,#8CBC95_84.38%,#D4EDC8_100%)]">
+          {qoute && (
+            <p
+              className={`p-10 ${kreon.className} hidden w- md:block font-bold text-2xl`}>
+              "{qoute}"
+            </p>
+          )}
+          <img
+            src="/images/Banner_img_dashboard.png"
+            alt="banner"
+            className="block h-full object-cover"></img>
+        </div>
+        <main className="flex flex-col overflow-hidden text-black ">
+          {children}
+        </main>
+      </div>
     </div>
-
-
-
-  )
+  );
 }
