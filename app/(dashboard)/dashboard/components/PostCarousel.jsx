@@ -56,8 +56,9 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-function Card({ id, image, title, authorName, votes }, user) {
+function Card({ id, image, title, authorName, votes, user }) {
   const voted = votes.some((vote) => vote.userId === user);
+
   const { classes } = useStyles();
 
   return (
@@ -98,7 +99,7 @@ export default function PostCarousel({ posts, user }) {
   const slides = posts.map((item) => (
     <Carousel.Slide key={item.title}>
       <Link href={`/communities/${item.community.name}/${item.id}#post`}>
-        <Card {...item} user={user} />
+        <Card {...item} user={user.id} />
       </Link>
     </Carousel.Slide>
   ));

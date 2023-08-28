@@ -11,7 +11,6 @@ import {
 } from "@material-tailwind/react";
 
 function CommunityCard({ community }) {
-  console.log(community);
   return (
     <Card className="w-80 justify-between overflow-hidden">
       <CardHeader
