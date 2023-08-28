@@ -35,8 +35,9 @@ const Post = ({ item, user }) => {
 
                     <CardTitle> {item.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="flex items-center justify-center">
-                    <img src={item.image} alt="post" />
+                <CardContent className="flex flex-col justify-center">
+                    {item.image && <img src={item.image} alt="post" className='mb-5' />}
+                    <p>{item.content}</p>
                 </CardContent>
             </Link>
             <CardFooter className="flex gap-6 items-center w-full">
