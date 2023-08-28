@@ -36,17 +36,17 @@ export default async function CommunitiesLayout({ children }) {
         />
       </aside>
       <div className="flex flex-col w-min">
-        <div className=" flex items-center justify-center lg:justify-between h-64  bg-[linear-gradient(90deg,#315D50_0%,#599068_52.60%,#8CBC95_84.38%,#D4EDC8_100%)]">
+        <div className=" flex items-center justify-center lg:justify-between h-64  bg-[linear-gradient(90deg,#9e6370_0%,#bf7b85_52.60%,#fae1dc_84.38%,#feece3_100%)]">
           {qoute && (
             <p
-              className={`p-10 ${kreon.className} hidden w- md:block font-bold text-2xl`}>
+              className={`p-10 ${kreon.className} hidden w-1/2 md:block font-bold text-2xl`}>
               "{qoute}"
             </p>
           )}
           <img
-            src="/images/Banner_img_dashboard.png"
+            src="/images/Banner_dash_3.svg"
             alt="banner"
-            className="block h-full object-cover"></img>
+            className="block max-w-xl object-cover"></img>
         </div>
         <main className="flex flex-col overflow-hidden text-black ">
           {children}
