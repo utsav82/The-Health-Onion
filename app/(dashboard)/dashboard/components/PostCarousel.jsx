@@ -27,8 +27,12 @@ import {
 
 function PostCard({ id, image, title, authorName, votes, user, content }) {
   const voted = votes.some((vote) => vote.userId === user);
+  const theme = useMantineTheme();
+  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
   return (
-    <Card className={` `} style={{ width: rem(400), height: rem(500) }}>
+    <Card
+      className={` `}
+      style={{ width: mobile ? "100vw" : rem(400), height: rem(500) }}>
       <CardHeader
         floated={false}
         shadow={false}
@@ -91,7 +95,7 @@ export default function PostCarousel({ posts, user }) {
   return (
     <div className="rounded-l">
       {mobile ? (
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 items-center">
           {posts.map((item, idx) => (
             <Link
               key={idx}
