@@ -34,14 +34,19 @@ export default async function PostsPage() {
     },
   });
 
-  const communities = await prisma.community.findMany();
+  const communities = await prisma.community.findMany({
+    include: {
+      creator: true,
+      subscribers: true,
+    },
+  });
 
   return (
     <div>
       <div className=" flex items-center justify-center lg:justify-between h-64 text-white bg-[linear-gradient(90deg,#9e6370_0%,#bf7b85_52.60%,#fae1dc_84.38%,#feece3_100%)]">
         {qoute && (
           <p
-            className={`p-10 ${kreon.className} hidden w-1/2 md:block font-bold text-2xl`}>
+            className={`p-10 ${kreon.className} hidden w-1/2 lg:block font-bold text-2xl`}>
             "{qoute}"
           </p>
         )}
@@ -60,7 +65,7 @@ export default async function PostsPage() {
             />
             <PostCarousel posts={posts} user={user}></PostCarousel>
           </div>
-          <div className="">
+          <div className="hidden md:block">
             <DashboardHeader
               heading="Recommended Communities"
               className="pb-10"

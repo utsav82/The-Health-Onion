@@ -1,9 +1,6 @@
 "use client";
 import { Carousel } from "@mantine/carousel";
 import { useMediaQuery } from "@mantine/hooks";
-import LikeButton from "../../communities/[id]/components/Like-Button";
-import ShareButton from "../../communities/[id]/components/Share-Button";
-import Link from "next/link";
 import {
   createStyles,
   Paper,
@@ -14,7 +11,56 @@ import {
   rem,
   getStylesRef,
 } from "@mantine/core";
+import LikeButton from "../../communities/[id]/components/Like-Button";
+import ShareButton from "../../communities/[id]/components/Share-Button";
+import Link from "next/link";
+import React from "react";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Avatar,
+  Tooltip,
+} from "@material-tailwind/react";
 
+function PostCard({ id, image, title, authorName, votes, user, content }) {
+  const voted = votes.some((vote) => vote.userId === user);
+  return (
+    <Card className={` `} style={{ width: rem(400), height: rem(500) }}>
+      <CardHeader
+        floated={false}
+        shadow={false}
+        color="transparent"
+        className="m-0 rounded-none h-1/2">
+        <img src={image} alt="card-image" className="object-cover w-full" />
+      </CardHeader>
+      <div className="flex flex-col justify-between h-1/2">
+        <CardBody>
+          <Typography variant="h4" color="blue-gray">
+            {title.substring(0, 25)}...
+          </Typography>
+          <Typography variant="lead" color="gray" className="mt-3 font-normal">
+            {content.substring(0, 100)}...
+          </Typography>
+        </CardBody>
+        <CardFooter className="flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <LikeButton
+              voted={voted}
+              postId={id}
+              number={votes.length}></LikeButton>
+            <ShareButton></ShareButton>
+          </div>
+          <Typography className="font-normal">
+            Posted By {authorName}
+          </Typography>
+        </CardFooter>
+      </div>
+    </Card>
+  );
+}
 const useStyles = createStyles((theme) => ({
   controls: {
     ref: getStylesRef("controls"),
@@ -29,69 +75,7 @@ const useStyles = createStyles((theme) => ({
       },
     },
   },
-  card: {
-    height: rem(300),
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  },
-
-  title: {
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontWeight: 900,
-    color: theme.white,
-    lineHeight: 1.2,
-    fontSize: rem(32),
-    marginTop: theme.spacing.xs,
-  },
-
-  author: {
-    color: theme.white,
-    opacity: 1,
-    fontWeight: 900,
-    textTransform: "uppercase",
-  },
 }));
-
-function Card({ id, image, title, authorName, votes, user }) {
-  const voted = votes.some((vote) => vote.userId === user);
-
-  const { classes } = useStyles();
-
-  return (
-    <Paper
-      shadow="md"
-      p="xl"
-      radius="md"
-      sx={
-        image
-          ? { backgroundImage: `url(${image})` }
-          : { backgroundColor: "black" }
-      }
-      className={`shadow   ${classes.card}`}>
-      <div>
-        <Text className={`text-color ${classes.author}`} size="xs">
-          Posted By {authorName}
-        </Text>
-        <Title order={3} className={`text-color ${classes.title}`}>
-          {title.substring(0, 50)}
-        </Title>
-      </div>
-
-      <div className="grid grid-flow-col grid-cols-2 gap-5 font-extrabold text-gray-400">
-        <LikeButton
-          voted={voted}
-          postId={id}
-          number={votes.length}></LikeButton>
-        <ShareButton></ShareButton>
-      </div>
-    </Paper>
-  );
-}
-
 export default function PostCarousel({ posts, user }) {
   const { classes } = useStyles();
   const theme = useMantineTheme();
@@ -99,7 +83,7 @@ export default function PostCarousel({ posts, user }) {
   const slides = posts.map((item) => (
     <Carousel.Slide key={item.title}>
       <Link href={`/communities/${item.community.name}/${item.id}#post`}>
-        <Card {...item} user={user.id} />
+        <PostCard {...item} user={user.id} />
       </Link>
     </Carousel.Slide>
   ));
@@ -112,19 +96,19 @@ export default function PostCarousel({ posts, user }) {
             <Link
               key={idx}
               href={`/communities/${item.community.name}/${item.id}#post`}>
-              <Card {...item} user={user} />
+              <PostCard {...item} user={user} />
             </Link>
           ))}
         </div>
       ) : (
         <Carousel
           classNames={classes}
-          slideSize="50%"
+          slideSize="30%"
           breakpoints={[
             {
               maxWidth: "sm",
               slideSize: "100%",
-              slideGap: rem(2),
+              slideGap: rem(1),
             },
           ]}
           slideGap="xl"
@@ -133,7 +117,7 @@ export default function PostCarousel({ posts, user }) {
           withIndicators
           translate="yes"
           orientation={mobile ? "vertical" : "horizontal"}
-          slidesToScroll={mobile ? 1 : 2}>
+          slidesToScroll={mobile ? 1 : 3}>
           {slides}
         </Carousel>
       )}
