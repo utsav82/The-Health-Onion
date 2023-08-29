@@ -26,7 +26,7 @@ export default async function PostsPage() {
     },
   });
 
-  console.log(posts)
+
   return (
     <DashboardShell>
       <DashboardHeader

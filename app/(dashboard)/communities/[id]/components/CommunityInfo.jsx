@@ -29,7 +29,7 @@ const CommunityInfo = async ({ params }) => {
   return (
     <div className="community-container w-screen md:w-[350px] max-w-md h-fit bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
   <div className="community-header p-5">
-    <img className="rounded-t-lg hidden md:block" src="/images/bannerr.png" alt="" />
+    <img className="rounded-t-lg w-screen object-cover md:w-[350px] h-52" src={community.image} alt="Community image" />
     <div className="community-info">
       <h5 className="mb-2 mt-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         {community.name}

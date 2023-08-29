@@ -10,7 +10,7 @@ export const metadata = {
 export default async function Community() {
 
   return (
-    <div className="container">
+    <div className="container mt-5">
       <div className="text-black flex justify-between">
         <DashboardHeader
           heading="Communities"

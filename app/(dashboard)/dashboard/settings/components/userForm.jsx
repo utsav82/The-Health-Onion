@@ -61,7 +61,7 @@ const userForm = ({ user }) => {
                         <Input
                             id="name"
                             name="name"
-                            className="w-[200px]"
+                            className="w-[200px] md:w-[300px]"
                             size={32}
                             disabled={isPending}
                             placeholder={user.name}
@@ -77,7 +77,7 @@ const userForm = ({ user }) => {
                         </Label>
                         <Input
                             id="email"
-                            className="w-[200px]"
+                            className="w-[200px] md:w-[300px]"
                             size={32}
                             disabled={true}
                             value={user.email}
@@ -89,7 +89,7 @@ const userForm = ({ user }) => {
                     <UploadButton
                         content={{
                             button({ ready }) {
-                                if (ready) return <div>Upload Image</div>;
+                                if (ready) return <div className='text-black'>Upload Image</div>;
                                 return "Getting ready...";
                             },
                             allowedContent({ ready, fileTypes, isUploading }) {
