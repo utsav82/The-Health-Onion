@@ -1,12 +1,12 @@
 import { DashboardHeader } from "app/components/header";
 import { DashboardShell } from "app/components/shell";
-import PostCarousel from "./components/PostCarousel";
-import CommunitiesCards from "./components/CommunitiesCards";
+// import PostCarousel from "./components/PostCarousel";
+import CommunitiesList from "./components/CommunitiesList";
 import prisma from "app/libs/prismadb";
 import { getCurrentUser } from "app/libs/session";
 import Quote from "inspirational-quotes";
 import { Kreon } from "next/font/google";
-
+import dynamic from "next/dynamic";
 const kreon = Kreon({
   subsets: ["latin"],
   weight: "variable",
@@ -32,6 +32,7 @@ export default async function PostsPage() {
     orderBy: {
       createdAt: "desc",
     },
+    take: 6
   });
 
   const communities = await prisma.community.findMany({
@@ -39,7 +40,10 @@ export default async function PostsPage() {
       creator: true,
       subscribers: true,
     },
+    take: 3
   });
+  const PostCarousel = dynamic(() => import("./components/PostCarousel"));
+  // const CommunitiesCards = dynamic(() => import("./components/CommunitiesCards"));
 
   return (
     <div>
@@ -63,16 +67,18 @@ export default async function PostsPage() {
               heading="Your feed"
               text="See the latest posts from communities"
             />
-            <PostCarousel posts={posts} user={user}></PostCarousel>
+            <Suspense fallback={<Loader />}>
+              <PostCarousel posts={posts} user={user}></PostCarousel></Suspense>
           </div>
           <div className="hidden md:block">
             <DashboardHeader
               heading="Recommended Communities"
               className="pb-10"
             />
-            <CommunitiesCards
-              communities={communities.slice(0, 3)}
-              user={user}></CommunitiesCards>
+            <Suspense fallback={<Loader />}>
+              <CommunitiesList></CommunitiesList>
+            </Suspense>
+
           </div>
         </Suspense>
       </DashboardShell>

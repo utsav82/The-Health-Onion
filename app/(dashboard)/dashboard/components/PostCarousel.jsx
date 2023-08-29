@@ -1,6 +1,8 @@
 "use client";
 import { Carousel } from "@mantine/carousel";
 import { useMediaQuery } from "@mantine/hooks";
+import Loader from "../loading"
+import { useEffect } from "react";
 import {
   createStyles,
   Paper,
@@ -43,7 +45,7 @@ function PostCard({ id, image, title, authorName, votes, user, content }) {
       <div className="flex flex-col justify-between h-1/2">
         <CardBody>
           <Typography variant="h4" color="blue-gray">
-            {title.substring(0, 25)}...
+            {title.substring(0, 23)}...
           </Typography>
           <Typography variant="lead" color="gray" className="mt-3 font-normal">
             {content.substring(0, 100)}...
@@ -81,6 +83,14 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 export default function PostCarousel({ posts, user }) {
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  const handleLoading = () => {
+    setIsLoading(false);
+  }
+  useEffect(() => {
+    handleLoading();
+  }, [])  
   const { classes } = useStyles();
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
@@ -93,7 +103,7 @@ export default function PostCarousel({ posts, user }) {
   ));
 
   return (
-    <div className="rounded-l">
+    !isLoading ? (<div className="rounded-l">
       {mobile ? (
         <div className="flex flex-col gap-5 items-center">
           {posts.map((item, idx) => (
@@ -125,6 +135,6 @@ export default function PostCarousel({ posts, user }) {
           {slides}
         </Carousel>
       )}
-    </div>
+    </div>) : (<Loader></Loader>)
   );
 }
