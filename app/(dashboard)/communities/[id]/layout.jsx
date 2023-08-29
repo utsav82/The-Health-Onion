@@ -8,7 +8,7 @@ const page = async ({ params, children }) => {
     <div className="flex flex-col mt-[-25px]">
       <Image
         unoptimized={true}
-        src={"/images/banner2.jpg"}
+        src={"/images/Banner_4.jpg"}
         width="500"
         height="100"
         alt="banner"
