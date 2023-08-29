@@ -61,7 +61,7 @@ const CommunitiesCards = ({ communities }) => {
   return (
     <div className="hidden md:flex md:flex-row gap-10">
       {communities.map((item, idx) => (
-        <CommunityCard community={item}></CommunityCard>
+        <CommunityCard key={idx} community={item}></CommunityCard>
       ))}
     </div>
   );

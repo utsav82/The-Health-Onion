@@ -8,9 +8,9 @@ const page = async ({ params }) => {
   const isCommunity = !!communityWithPosts;
   if (!isCommunity) return notFound();
   return (
-   
-      <PostList posts={communityWithPosts.posts} />
-  
+    <>
+      {(communityWithPosts.posts).length !== 0 ? <PostList posts={communityWithPosts.posts}></PostList> : <div className="text-xl text-black font-bold h-[75vh] flex items-center justify-center">Create posts and <br className="sm:hidden"></br>   share with community</div>}
+    </>
   );
 
 };

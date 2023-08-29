@@ -20,7 +20,7 @@ import { AxiosError } from "axios";
 import { toast } from "react-hot-toast";
 import { ReloadIcon } from "@radix-ui/react-icons";
 import { generateComponents } from "@uploadthing/react";
-const { UploadButton, UploadDropzone, Uploader } = generateComponents();
+const { UploadButton } = generateComponents();
 const CreatePostForm = ({ community_name, communityId }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isPending, startTransition] = useTransition();
@@ -147,7 +147,7 @@ const CreatePostForm = ({ community_name, communityId }) => {
           </div>
         </form>
       </CardContent>
-      <CardFooter className="flex justify-between flex-col gap-y-3 sm:gap-0 sm:flex-row ">
+      <CardFooter className="flex justify-between gap-y-3 sm:gap-0 sm:flex-row ">
         <Button
           variant="destructive"
           onClick={() => router.push(`/communities/${community_name}`)}>
@@ -159,7 +159,7 @@ const CreatePostForm = ({ community_name, communityId }) => {
           form="myform"
           size="lg"
           disabled={isMutating || isimageLoading}>
-          Post
+          {isMutating ? <ReloadIcon className=" h-4 w-4 animate-spin" /> : "Post"}
         </Button>
       </CardFooter>
     </Card>

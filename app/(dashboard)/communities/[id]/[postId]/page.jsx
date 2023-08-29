@@ -55,8 +55,8 @@ const PostPage = async ({ params }) => {
         <CardTitle> {post.title}</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col justify-center">
-        <img src={post.image} alt="post" />
-        <p className="mt-5">{post.content}</p>
+        {post.image && <img src={post.image} alt="post" className='mb-5' />}
+        <p>{post.content}</p>
       </CardContent>
 
       <CardFooter className="flex flex-col w-full">

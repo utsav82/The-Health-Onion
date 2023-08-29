@@ -10,7 +10,7 @@ export const metadata = {
 }
 
 export default async function PostsPage() {
-  const user =await getCurrentUser();
+  const user = await getCurrentUser();
   const posts = await prisma.post.findMany({
     where: {
       authorId: user.id
@@ -25,8 +25,8 @@ export default async function PostsPage() {
       createdAt: "desc",
     },
   });
-  
 
+  console.log(posts)
   return (
     <DashboardShell>
       <DashboardHeader
@@ -35,7 +35,7 @@ export default async function PostsPage() {
       />
       <div className="grid gap-10">
 
-        <PostList posts={posts}></PostList>
+        {posts.length !== 0 ? <PostList posts={posts}></PostList> : <div className="text-xl font-bold h-[50vh] flex items-center justify-center">Join communities to create posts</div>}
 
       </div>
     </DashboardShell>
