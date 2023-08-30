@@ -1,44 +1,143 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+<div align="center">
 
-## Getting Started
+  <a href="">[![Contributors][contributors-shield]][contributors-url]</a>
+  <a href="">[![Forks][forks-shield]][forks-url]</a>
+  <a href="">[![Stargazers][stars-shield]][stars-url]</a>
+  <a href="">[![MIT License][license-shield]][license-url]</a>
+</div>
 
-First, run the development server:
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+ 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+  <h3 align="center">The Health Onion</h3>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  <p align="center">
+   Your Source for Health Conversations
+    <br />
+    <a href="https://the-health-onion.vercel.app/">Visit</a>
+  </p>
+</div>
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<!-- ABOUT THE PROJECT -->
 
-## Learn More
+## About The Project
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Empowering Your Journey to Better Health Through Knowledge Sharing and Supportive Connections
 
-## Deploy on Vercel
+### Built With
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- ![Next.js](https://img.shields.io/badge/Next.js-%23000000.svg?style=for-the-badge&logo=next-dot-js&logoColor=white)
+- ![Prisma](https://img.shields.io/badge/prisma-%232D3748.svg?style=for-the-badge&logo=prisma&logoColor=white)
+- ![MongoDB](https://img.shields.io/badge/mongodb-%2347A248.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+- ![Tailwind CSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+- ![NextAuth.js](https://img.shields.io/badge/NextAuth.js-%232D3748.svg?style=for-the-badge&logo=nextauth-dot-js&logoColor=white)
 
-TODO:
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-> Follower number on comm info
-> Update profile image in settings
-> Improve post card 
-> form of create post 
-> subscribe button
-> Improve error page
-> credetials user image optional chaingin error
+<!-- GETTING STARTED -->
+
+<!-- ROADMAP -->
+
+## Roadmap
+
+- [x] Add Readme
+- [ ] Meta tags for each page
+- [ ] Report button
+
+
+See the [open issues](https://github.com/Malay-dev/the-health-onion-v1/issues) for a full list of proposed features (and known issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LICENSE -->
+
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTACT -->
+
+## Contact
+
+Utsav Yadav - [@Yadavutsav3](https://twitter.com/Yadavutsav3)
+Malay Kumar - [@void_MalayK](https://twitter.com/void_MalayK)
+
+Project Link: [https://github.com/Malay-dev/the-health-onion-v1](https://github.com/Malay-dev/the-health-onion-v1)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGMENTS -->
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/Malay-dev/the-health-onion-v1.svg?style=for-the-badge
+[contributors-url]: https://github.com/Malay-dev/the-health-onion-v1/graphs/contributors
+[stars-shield]: https://img.shields.io/github/stars/Malay-dev/the-health-onion-v1.svg?style=for-the-badge
+[stars-url]: https://github.com/othneildrew/Malay-dev/the-health-onion-v1
+[forks-shield]: https://img.shields.io/github/forks/Malay-dev/the-health-onion-v1.svg?style=for-the-badge
+[forks-url]: https://github.com/Malay-dev/the-health-onion-v1/network/members
+[license-shield]: https://img.shields.io/github/license/Malay-dev/the-health-onion-v1.svg?style=for-the-badge
+[license-url]: https://github.com/Malay-dev/the-health-onion-v1/blob/master/LICENSE.txt
+
