@@ -29,9 +29,6 @@ export default async function PostsPage() {
       author: true,
       community: true,
     },
-    orderBy: {
-      createdAt: "desc",
-    },
     take: 6,
   });
 

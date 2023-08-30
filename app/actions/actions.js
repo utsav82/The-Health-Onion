@@ -1,5 +1,6 @@
 "use server";
 import { revalidateTag, revalidatePath } from "next/cache";
+import { getCurrentUser } from "app/libs/session";
 import prisma from "app/libs/prismadb";
 import { redirect } from "next/navigation";
 export async function handleComment(comment, postId, user, replyToId) {
@@ -38,6 +39,9 @@ export async function handleUser(userId, user) {
 
 export async function deletePost(postId, communityName) {
   try {
+    if (!postId) {
+      throw new Error("There is no post");
+    }
     await prisma.post.delete({
       where: {
         id: postId,
@@ -53,6 +57,9 @@ export async function deletePost(postId, communityName) {
 
 export async function deleteComment(postId, commentId, replies) {
   try {
+    if (!commentId) {
+      throw new Error("There is no comment");
+    }
     if (replies === null || replies.length === 0) {
       await prisma.comment.delete({
         where: {
@@ -77,11 +84,35 @@ export async function deleteComment(postId, commentId, replies) {
   revalidateTag(postId);
 }
 
-export async function deleteCommunity(communityName) {
+export async function deleteCommunity(communityName, user) {
   try {
-    await prisma.community.delete({
+    if (!communityName) {
+      throw new Error("Community does not exist");
+    }
+    const community = await prisma.community.findFirst({
       where: {
         name: communityName,
+      },
+      include: {
+        creator: true,
+      },
+    });
+
+    if (user.id !== community.creator.id) {
+      throw new Error("Unauthorized");
+    }
+    if (!community) {
+      throw new Error("Community does not exist");
+    }
+    await prisma.subscription.deleteMany({
+      where: {
+        communityId: community.id,
+      },
+    });
+
+    await prisma.community.delete({
+      where: {
+        id: community.id,
       },
     });
   } catch (err) {

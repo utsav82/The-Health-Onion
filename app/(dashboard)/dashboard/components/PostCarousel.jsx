@@ -27,7 +27,7 @@ import {
   Tooltip,
 } from "@material-tailwind/react";
 
-function PostCard({ id, image, title, authorName, votes, user, content }) {
+function PostCard({ id, image, title, authorName, votes, user, content, community }) {
   const voted = votes.some((vote) => vote.userId === user);
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
@@ -35,22 +35,26 @@ function PostCard({ id, image, title, authorName, votes, user, content }) {
     <Card
       className={` `}
       style={{ width: mobile ? "100vw" : rem(400), height: rem(500) }}>
+
       <CardHeader
         floated={false}
         shadow={false}
         color="transparent"
         className="m-0 rounded-none h-1/2">
-        <img src={image} alt="card-image" className="object-cover w-full" />
+      { image&& <img src={image} alt="card-image" className="object-cover w-full" />}
       </CardHeader>
       <div className="flex flex-col justify-between h-1/2">
-        <CardBody>
-          <Typography variant="h4" color="blue-gray">
-            {title.substring(0, 23)}...
-          </Typography>
-          <Typography variant="lead" color="gray" className="mt-3 font-normal">
-            {content.substring(0, 100)}...
-          </Typography>
-        </CardBody>
+        <Link href={`/communities/${community.name}/${id}#post`}>
+          <CardBody>
+            <Typography variant="h4" color="blue-gray">
+              {title.substring(0, 23)}...
+            </Typography>
+            <Typography variant="lead" color="gray" className="mt-3 font-normal">
+              {content.substring(0, 100)}...
+            </Typography>
+          </CardBody>
+        </Link>
+
         <CardFooter className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <LikeButton
@@ -60,11 +64,11 @@ function PostCard({ id, image, title, authorName, votes, user, content }) {
             <ShareButton></ShareButton>
           </div>
           <Typography className="font-normal">
-            Posted By {authorName}
+            Posted By {authorName.substring(0,10)}
           </Typography>
         </CardFooter>
       </div>
-    </Card>
+    </Card >
   );
 }
 const useStyles = createStyles((theme) => ({
@@ -90,15 +94,13 @@ export default function PostCarousel({ posts, user }) {
   }
   useEffect(() => {
     handleLoading();
-  }, [])  
+  }, [])
   const { classes } = useStyles();
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
   const slides = posts.map((item) => (
     <Carousel.Slide key={item.title}>
-      <Link href={`/communities/${item.community.name}/${item.id}#post`}>
-        <PostCard {...item} user={user.id} />
-      </Link>
+      <PostCard {...item} user={user.id} />
     </Carousel.Slide>
   ));
 
@@ -107,11 +109,7 @@ export default function PostCarousel({ posts, user }) {
       {mobile ? (
         <div className="flex flex-col gap-5 items-center">
           {posts.map((item, idx) => (
-            <Link
-              key={idx}
-              href={`/communities/${item.community.name}/${item.id}#post`}>
-              <PostCard {...item} user={user} />
-            </Link>
+            <PostCard {...item} user={user} key={idx} />
           ))}
         </div>
       ) : (

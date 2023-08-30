@@ -84,7 +84,7 @@ model Post {
   authorId    String    @db.ObjectId
   authorName  String?
   authorImage String?
-  community   Community @relation(fields: [communityId], references: [id])
+  community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
   communityId String    @db.ObjectId
   comments    Comment[]
   votes       Vote[]

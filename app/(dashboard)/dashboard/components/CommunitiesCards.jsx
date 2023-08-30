@@ -5,7 +5,7 @@ const roboto_condensed = Roboto_Condensed({
   subsets: ["latin"],
   weight: "700",
 });
-
+import Link from "next/link";
 function CommunityCard({ community }) {
   return (
     <div
@@ -40,7 +40,9 @@ const CommunitiesCards = ({ communities }) => {
   return (
     <div className="hidden md:flex md:flex-row gap-10">
       {communities.map((item, idx) => (
-        <CommunityCard key={idx} community={item}></CommunityCard>
+         <Link href={`/communities/${item.name}`} key={item.id}>
+        <CommunityCard community={item}></CommunityCard>
+        </Link>
       ))}
     </div>
   );
