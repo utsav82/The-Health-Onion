@@ -13,7 +13,7 @@ const page = async ({ params, children }) => {
         style={{
           backgroundImage: 'url("/images/Banner_4.jpg")',
         }}
-        className="h-48 w-screen z-1 bg-cover bg-center flex items-center justify-center">
+        className="h-48 w-full z-1 bg-cover bg-center flex items-center justify-center">
         <h1
           style={{ fontStyle: "italic", letterSpacing: "0.1em" }}
           className={`text-black text-center text-7xl tracking-wider  font-semibold italic ${eczar.className}`}>
