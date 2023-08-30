@@ -109,7 +109,7 @@ export default function PostCarousel({ posts, user }) {
       {mobile ? (
         <div className="flex flex-col gap-5 items-center">
           {posts.map((item, idx) => (
-            <PostCard {...item} user={user} key={idx} />
+            <PostCard {...item} user={user.id} key={idx} />
           ))}
         </div>
       ) : (
