@@ -1,12 +1,12 @@
 import { DashboardHeader } from "app/components/header";
 import { DashboardShell } from "app/components/shell";
-// import PostCarousel from "./components/PostCarousel";
-import CommunitiesList from "./components/CommunitiesList";
+import PostCarousel from "./components/PostCarousel";
+import CommunitiesCards from "./components/CommunitiesCards";
 import prisma from "app/libs/prismadb";
 import { getCurrentUser } from "app/libs/session";
 import Quote from "inspirational-quotes";
 import { Kreon } from "next/font/google";
-import dynamic from "next/dynamic";
+
 const kreon = Kreon({
   subsets: ["latin"],
   weight: "variable",
@@ -32,7 +32,7 @@ export default async function PostsPage() {
     orderBy: {
       createdAt: "desc",
     },
-    take: 6
+    take: 6,
   });
 
   const communities = await prisma.community.findMany({
@@ -40,10 +40,8 @@ export default async function PostsPage() {
       creator: true,
       subscribers: true,
     },
-    take: 3
+    take: 3,
   });
-  const PostCarousel = dynamic(() => import("./components/PostCarousel"));
-  // const CommunitiesCards = dynamic(() => import("./components/CommunitiesCards"));
 
   return (
     <div>
@@ -60,28 +58,26 @@ export default async function PostsPage() {
           className="block max-w-xl object-cover"></img>
       </div>
 
-      <DashboardShell>
-        <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Loader />}>
+        <DashboardShell>
           <div className=" md:w-[76vw]">
             <DashboardHeader
               heading="Your feed"
               text="See the latest posts from communities"
             />
-            <Suspense fallback={<Loader />}>
-              <PostCarousel posts={posts} user={user}></PostCarousel></Suspense>
+
+            <PostCarousel posts={posts} user={user}></PostCarousel>
           </div>
           <div className="hidden md:block">
             <DashboardHeader
               heading="Recommended Communities"
               className="pb-10"
             />
-            <Suspense fallback={<Loader />}>
-              <CommunitiesList></CommunitiesList>
-            </Suspense>
 
+            <CommunitiesCards communities={communities}></CommunitiesCards>
           </div>
-        </Suspense>
-      </DashboardShell>
+        </DashboardShell>
+      </Suspense>
     </div>
   );
 }
