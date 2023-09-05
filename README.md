@@ -82,6 +82,9 @@ Empowering Your Journey to Better Health Through Knowledge Sharing and Supportiv
 - [x] Add Readme
 - [ ] Meta tags for each page
 - [ ] Report button
+- [ ] Otp verification in auth
+- [ ] Tools for content moderation
+
 
 
 See the [open issues](https://github.com/Malay-dev/the-health-onion-v1/issues) for a full list of proposed features (and known issues).
@@ -125,9 +128,6 @@ Project Link: [https://github.com/Malay-dev/the-health-onion-v1](https://github.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
