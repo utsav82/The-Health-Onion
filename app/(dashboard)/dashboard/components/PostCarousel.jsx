@@ -3,6 +3,7 @@ import { Carousel } from "@mantine/carousel";
 import { useMediaQuery } from "@mantine/hooks";
 import Loader from "../loading"
 import { useEffect } from "react";
+import Image from "next/image";
 import {
   createStyles,
   Paper,
@@ -41,7 +42,8 @@ function PostCard({ id, image, title, authorName, votes, user, content, communit
         shadow={false}
         color="transparent"
         className="m-0 rounded-none h-1/2">
-      { image&& <img src={image} alt="card-image" className="object-cover w-full" />}
+        {image && <Image width={500} priority
+          height={500} src={image} alt="card-image" className="object-cover w-full" />}
       </CardHeader>
       <div className="flex flex-col justify-between h-1/2">
         <Link href={`/communities/${community.name}/${id}#post`}>
@@ -64,7 +66,7 @@ function PostCard({ id, image, title, authorName, votes, user, content, communit
             <ShareButton></ShareButton>
           </div>
           <Typography className="font-normal">
-            Posted By {authorName.substring(0,10)}
+            Posted By {authorName.substring(0, 10)}
           </Typography>
         </CardFooter>
       </div>

@@ -78,7 +78,7 @@ const CommunitiesList = async () => {
           <TabsTrigger value="followed">Followed</TabsTrigger>
         </TabsList>
         <TabsContent value="all">
-          <div className="md:grid flex flex-col md:grid-cols-4  items-center justify-center gap-5 mt-5">
+          <div className="flex justify-center md:justify-normal gap-5 mt-5 flex-wrap">
             {communities.map((item, idx) => (
               <Link href={`/communities/${item.name}`} key={item.id}>
                 <CommunityCard community={item}></CommunityCard>
