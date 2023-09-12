@@ -19,8 +19,6 @@ import { AxiosError } from "axios";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { ReloadIcon } from "@radix-ui/react-icons";
-import ImageSelector from "./image-selector";
-import Image from "next/image";
 
 export default function Create({ variant }) {
   const router = useRouter();

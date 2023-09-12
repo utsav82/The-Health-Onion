@@ -1,17 +1,20 @@
 import { DashboardHeader } from "app/components/header";
 import { DashboardShell } from "app/components/shell";
-import PostCarousel from "./components/PostCarousel";
 import CommunitiesCards from "./components/CommunitiesCards";
 import prisma from "app/libs/prismadb";
 import { getCurrentUser } from "app/libs/session";
 import Quote from "inspirational-quotes";
 import { Kreon } from "next/font/google";
-
+import dynamic from "next/dynamic";
+const PostCarousel = dynamic(
+  () => import("./components/PostCarousel"),
+);
 const kreon = Kreon({
   subsets: ["latin"],
   weight: "variable",
   variable: "--font-kreon",
 });
+import Image from "next/image";
 import { Suspense } from "react";
 import Loader from "./loading";
 export const metadata = {
@@ -49,10 +52,10 @@ export default async function PostsPage() {
             "{qoute}"
           </p>
         )}
-        <img
+        <Image height={500} width={500} 
           src="/images/Banner_dash_3.svg"
           alt="banner"
-          className="block max-w-xl object-cover"></img>
+          className="block max-w-xl object-cover"></Image>
       </div>
 
       <Suspense fallback={<Loader />}>

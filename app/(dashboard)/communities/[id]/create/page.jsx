@@ -1,14 +1,10 @@
 import prisma from "app/libs/prismadb";
 import { getCurrentUser } from "app/libs/session";
 import { redirect } from "next/navigation";
-import { toast } from "react-hot-toast";
-import CreatePostForm from "./CreatePostForm"
-// import dynamic from "next/dynamic";
-// import Editor  from "./components/Editor"
-// const Editor = dynamic(
-//   () => import("./components/Editor"),
-//   { ssr: false }
-// );
+import dynamic from "next/dynamic";
+const CreatePostForm = dynamic(
+  () => import("./CreatePostForm"),
+);
 const page = async ({ params }) => {
 
   const user = await getCurrentUser();

@@ -6,6 +6,7 @@ import SubscribeLeaveToggle from "./SubscribeLeaveToggle";
 import Link from "next/link";
 import { Button } from "app/components/ui/button";
 import DeleteButton from "./Community-Delete-Button";
+import Image from "next/image";
 const CommunityInfo = async ({ params }) => {
   const user = await getCurrentUser();
   const community_name = params.id;
@@ -30,7 +31,7 @@ const CommunityInfo = async ({ params }) => {
     <div className="community-container relative w-screen md:w-[350px] max-w-md h-fit bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
       <div className="community-header p-5">
-        <img className="rounded-t-lg w-screen object-cover md:w-[350px] h-52" src={community.image} alt="Community image" />
+        <Image height={500} width={500} className="rounded-t-lg w-screen object-cover md:w-[350px] h-52" src={community.image} alt="Community image" />
         <div className="community-info">
           <h5 className="mb-2 mt-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             {community.name}

@@ -1,6 +1,9 @@
 import { DashboardHeader } from "app/components/header";
 import CommunitiesList from "./components/CommunitiesList";
-import Create from "./components/create-community-form";
+import dynamic from "next/dynamic";
+const Create = dynamic(
+  () => import("./components/create-community-form"),
+);
 import { Suspense } from 'react'
 import Loader from "./components/communityLoader";
 export const metadata = {
