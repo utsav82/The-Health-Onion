@@ -16,7 +16,6 @@ const LikeButton = ({ number, postId, voted }) => {
       const payload = {
         postId: postId,
       };
-      console.log(payload);
       setIsLoading(true);
       if (isVoted) {
         setVotes(votes - 1);
@@ -31,7 +30,6 @@ const LikeButton = ({ number, postId, voted }) => {
 
       return data;
     } catch (err) {
-      console.log(err);
       toast.error("There was an error");
     } finally {
       setIsLoading(false);
