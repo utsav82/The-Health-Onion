@@ -64,8 +64,7 @@ const CreatePostForm = ({ community_name, communityId }) => {
         if (err.response?.status === 422) {
           toast.error("Invalid subreddit name");
         }
-      } else console.log(err);
-      toast.error("There was an error");
+      } else { toast.error("There was an error"); }
     } finally {
       setIsLoading(false);
     }

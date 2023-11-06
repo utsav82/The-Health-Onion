@@ -54,7 +54,6 @@ export default function Create({ variant }) {
       return data;
     } catch (err) {
       if (err instanceof AxiosError) {
-        console.log(err)
         if (err.response?.status === 409) {
           toast.error("Community already exists");
         }
