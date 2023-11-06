@@ -36,7 +36,7 @@
     "eslint-config-next": "^13.4.19",
     "inspirational-quotes": "^2.0.1",
     "lucide-react": "^0.264.0",
-    "next": "^13.4.19",
+    "next": "^13.5.3",
     "next-auth": "^4.22.3",
     "postcss": "8.4.23",
     "react": "^18.2.0",
