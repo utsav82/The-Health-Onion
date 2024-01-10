@@ -7,6 +7,7 @@ const eczar = Eczar({
 });
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import prisma from "app/libs/prismadb";
 import LoadingInfoCard from "./components/LoadingInfoCard";
 const page = async ({ params, children }) => {
 

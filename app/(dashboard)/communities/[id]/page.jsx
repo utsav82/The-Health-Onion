@@ -1,4 +1,4 @@
-
+import prisma from "app/libs/prismadb";
 import PostList from "./components/PostList";
 import { Suspense } from "react";
 const page = async ({ params }) => {
