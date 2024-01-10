@@ -3,7 +3,6 @@ import React from "react";
 import { BsFillChatRightFill } from "react-icons/bs";
 import { useRouter } from "next/navigation";
 const CommentButton = ({ number }) => {
-  const router = useRouter();
   return (
     <>
       <button className="flex space-x-2 items-center">

@@ -47,6 +47,7 @@ const CreatePostForm = ({ community_name, communityId }) => {
         ...data,
         communityId,
         imageurl,
+        community_name,
       };
       setIsLoading(true);
 
@@ -56,13 +57,14 @@ const CreatePostForm = ({ community_name, communityId }) => {
 
       toast.success("Sucessfully posted");
 
-      startTransition(() => router.refresh());
+
       router.push(`/communities/${community_name}`);
+      startTransition(() => router.refresh());
       return data;
     } catch (err) {
       if (err instanceof AxiosError) {
         if (err.response?.status === 422) {
-          toast.error("Invalid subreddit name");
+          toast.error("Invalid Title");
         }
       } else { toast.error("There was an error"); }
     } finally {

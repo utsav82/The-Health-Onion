@@ -37,7 +37,7 @@ const CommentForm = ({ postId, user, replyToId }) => {
                     placeholder="Write a comment..."
                     required></textarea>
             </div>
-            <Button type="submit" disabled={isPending}>{isPending ? <ReloadIcon className="mr-2 h-4 w-4 animate-spin" /> : "Comment"}</Button>
+            <Button type="submit" disabled={isPending}>{isPending ? <ReloadIcon className="h-4 w-4 animate-spin" /> : "Comment"}</Button>
         </form>
     )
 }
