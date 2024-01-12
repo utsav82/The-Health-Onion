@@ -5,8 +5,20 @@ const eczar = Eczar({
   style: "normal",
   subsets: ["devanagari"],
 });
-
+import { notFound } from "next/navigation";
+import { Suspense } from "react";
+import prisma from "app/libs/prismadb";
+import LoadingInfoCard from "./components/LoadingInfoCard";
 const page = async ({ params, children }) => {
+
+  const community = await prisma.community.findFirst({
+    where: {
+      name: params.id,
+    }
+  });
+  const isCommunity = !!community;
+  if (!isCommunity) return notFound();
+
   return (
     <div className="flex flex-col">
       <div
@@ -22,8 +34,11 @@ const page = async ({ params, children }) => {
       </div>
       <div className="container w-screen items-center md:items-start md:mt-5 md:gap-10 flex flex-col-reverse md:flex md:flex-row">
         <div className="md:mt-0 w-screen">{children}</div>
+
         <div className="md:top-20 md:h-full md:sticky">
-          <CommunityInfo params={params} />
+          <Suspense fallback={<LoadingInfoCard />}>
+            <CommunityInfo params={params} />
+          </Suspense>
         </div>
       </div>
     </div>

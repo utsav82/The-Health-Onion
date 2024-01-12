@@ -52,32 +52,34 @@ export default async function PostsPage() {
             "{qoute}"
           </p>
         )}
-        <Image height={500} width={500} 
+        <Image height={500} width={500}
           src="/images/Banner_dash_3.svg"
           alt="banner"
           className="block max-w-xl object-cover"></Image>
       </div>
 
-      <Suspense fallback={<Loader />}>
-        <DashboardShell>
-          <div className=" md:w-[76vw]">
-            <DashboardHeader
-              heading="Your feed"
-              text="See the latest posts from communities"
-            />
 
+      <DashboardShell>
+        <div className=" md:w-[76vw]">
+          <DashboardHeader
+            heading="Your feed"
+            text="See the latest posts from communities"
+          />
+          <Suspense fallback={<Loader />}>
             <PostCarousel posts={posts} user={user}></PostCarousel>
-          </div>
-          <div className="hidden md:block">
-            <DashboardHeader
-              heading="Recommended Communities"
-              className="pb-10"
-            />
+          </Suspense>
+        </div>
+        <div className="hidden md:block">
+          <DashboardHeader
+            heading="Recommended Communities"
+            className="pb-10"
+          />
+          <Suspense fallback={<Loader />}>
+            <CommunitiesCards communities={communities} />
+          </Suspense>
+        </div>
+      </DashboardShell>
 
-            <CommunitiesCards communities={communities}></CommunitiesCards>
-          </div>
-        </DashboardShell>
-      </Suspense>
     </div>
   );
 }

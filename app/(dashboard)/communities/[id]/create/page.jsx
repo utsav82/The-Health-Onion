@@ -1,10 +1,7 @@
 import prisma from "app/libs/prismadb";
 import { getCurrentUser } from "app/libs/session";
 import { redirect } from "next/navigation";
-import dynamic from "next/dynamic";
-const CreatePostForm = dynamic(
-  () => import("./CreatePostForm"),
-);
+import CreatePostForm from "./CreatePostForm";
 const page = async ({ params }) => {
 
   const user = await getCurrentUser();

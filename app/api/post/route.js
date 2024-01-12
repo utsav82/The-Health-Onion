@@ -1,6 +1,6 @@
 import { getCurrentUser } from "app/libs/session";
 import prisma from "app/libs/prismadb";
-
+import { revalidatePath } from "next/cache";
 export async function POST(req) {
   try {
     const user = await getCurrentUser();
@@ -11,8 +11,8 @@ export async function POST(req) {
 
     const body = await req.json();
 
-    const { title, content, communityId, imageurl } = body;
-
+    const { title, content, communityId, imageurl, community_name } = body;
+    console.log(body);
     if (title.length < 3 || title.length > 100) {
       return new Response("Invalid title", { status: 422 });
     }
@@ -40,6 +40,8 @@ export async function POST(req) {
         image: imageurl,
       },
     });
+
+    revalidatePath(`/communities/${community_name}`);
 
     return new Response("OK");
   } catch (error) {
