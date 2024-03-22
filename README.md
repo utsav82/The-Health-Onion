@@ -23,6 +23,7 @@
 
   <p align="center">
    Your Source for Health Conversations
+    A Health focussed social media.
     <br />
     <a href="https://the-health-onion.vercel.app/">Visit</a>
   </p>
@@ -57,10 +58,10 @@
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
-
-
-
 Empowering Your Journey to Better Health Through Knowledge Sharing and Supportive Connections
+    
+![screenshot-onion](https://github.com/utsav82/The-Health-Onion/assets/92868052/0c734bd5-4ec2-4334-8f11-9130c75b66ef)
+![screenshot-onion2](https://github.com/utsav82/The-Health-Onion/assets/92868052/698434a1-9a79-4caa-b1fc-eaf6b3b88ce5)
 
 ### Built With
 
